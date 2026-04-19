@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact — IChannel Technologies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #F8F7F3; --ink: #1A1915; --ink-2: #3A3832; --muted: #6B6860;
+    --hair: #1A191522; --sand: #ECE6D6; --sand-2: #E1D9C4; --paper: #FFFFFF;
+    --coal: #14130F; --accent: #326BC8;
+    --max: 1360px; --gutter: clamp(20px, 4vw, 48px);
+    color-scheme: light;
+  }
+  html[data-theme="dark"] {
+    --bg: #14130F; --ink: #EFE9D8; --ink-2: #C9C3B2; --muted: #8A8576;
+    --hair: #EFE9D81F; --sand: #26231E; --sand-2: #33302A; --paper: #1C1B17; --coal: #0A0907;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    html[data-theme="system"] {
+      --bg: #14130F; --ink: #EFE9D8; --ink-2: #C9C3B2; --muted: #8A8576;
+      --hair: #EFE9D81F; --sand: #26231E; --sand-2: #33302A; --paper: #1C1B17; --coal: #0A0907;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Inter Tight", system-ui, -apple-system, sans-serif;
+    font-size: 16px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; color: var(--muted); }
+  .label::before { content: ""; display: inline-block; width: 22px; height: 1px; background: currentColor; vertical-align: middle; margin-right: 10px; transform: translateY(-2px); }
+  .mono { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* Nav */
+  .nav { position: sticky; top: 0; z-index: 50; background: color-mix(in oklab, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--hair); }
+  .nav__row { display: flex; align-items: center; gap: 28px; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: "Instrument Serif", serif; font-size: 24px; }
+  .brand__dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; }
+  .brand__sub { font-family: "Inter Tight"; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); display: block; line-height: 1; }
+  @media (max-width: 700px) { .brand__sub { display: none; } .brand { font-size: 20px; } }
+  .back { margin-left: auto; display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--ink); font-size: 13px; }
+  .back:hover { background: var(--ink); color: var(--bg); }
+
+  /* Hero */
+  .c-hero { padding: 72px 0 32px; }
+  .c-hero__grid { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: end; }
+  @media (min-width: 900px) { .c-hero__grid { grid-template-columns: 1.2fr 1fr; gap: 80px; } }
+  .c-hero h1 {
+    font-family: "Instrument Serif", serif; font-weight: 400; font-style: italic;
+    font-size: clamp(56px, 9vw, 140px); line-height: 0.92; letter-spacing: -0.02em;
+    margin: 16px 0 0;
+  }
+  .c-hero h1 em { color: var(--accent); font-style: italic; }
+  .c-hero p { max-width: 42ch; color: var(--ink-2); font-size: 17px; margin: 0; }
+
+  /* Body */
+  .body { padding: 48px 0 96px; border-top: 1px solid var(--hair); }
+  .body__grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
+  @media (min-width: 900px) { .body__grid { grid-template-columns: 1.3fr 0.9fr; gap: 80px; } }
+
+  /* Form */
+  form { display: grid; gap: 22px; }
+  .row { display: grid; gap: 22px; }
+  @media (min-width: 600px) { .row { grid-template-columns: 1fr 1fr; } }
+  .field { display: grid; gap: 6px; }
+  .field label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .field input, .field select, .field textarea {
+    background: transparent; border: 0; border-bottom: 1px solid var(--hair);
+    padding: 12px 2px; font: inherit; color: var(--ink); outline: none;
+    transition: border-color .2s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-bottom-color: var(--accent); }
+  .field textarea { min-height: 120px; resize: vertical; font-family: inherit; }
+
+  /* Interest chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 14px; border-radius: 999px; border: 1px solid var(--hair);
+    font-size: 13px; cursor: pointer; user-select: none;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .chip input { display: none; }
+  .chip:hover { border-color: var(--ink); }
+  .chip.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0; transition: opacity .2s ease; }
+  .chip.on .dot { opacity: 1; background: var(--bg); }
+
+  /* Budget */
+  .budget { display: grid; gap: 10px; }
+  .budget__val { font-family: "Instrument Serif"; font-size: 40px; line-height: 1; letter-spacing: -0.01em; }
+  .budget__val em { color: var(--accent); font-style: italic; }
+  .budget input[type=range] {
+    -webkit-appearance: none; appearance: none; width: 100%; height: 4px;
+    background: var(--hair); border-radius: 999px; outline: none;
+  }
+  .budget input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--bg); cursor: pointer;
+    box-shadow: 0 2px 8px #0003;
+  }
+  .budget input[type=range]::-moz-range-thumb {
+    width: 22px; height: 22px; border-radius: 50%; background: var(--accent);
+    border: 3px solid var(--bg); cursor: pointer;
+  }
+
+  /* Submit */
+  .submit-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; padding-top: 16px; border-top: 1px solid var(--hair); }
+  .submit {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 14px 22px; border-radius: 999px; background: var(--ink); color: var(--bg);
+    font-size: 14px; cursor: pointer; transition: background .2s ease, transform .2s ease;
+  }
+  .submit:hover { background: var(--accent); transform: translateY(-1px); }
+  .submit .arrow { width: 20px; height: 20px; border-radius: 50%; background: var(--bg); color: var(--ink); display: grid; place-items: center; }
+  .submit .arrow svg { width: 10px; height: 10px; }
+
+  /* Aside */
+  .aside { display: grid; gap: 28px; align-content: start; }
+  .aside__card {
+    background: var(--paper); border: 1px solid var(--hair); border-radius: 18px;
+    padding: 24px; display: grid; gap: 14px;
+  }
+  .aside__card h3 { font-family: "Instrument Serif"; font-weight: 400; font-size: 24px; margin: 0; letter-spacing: -0.01em; }
+  .aside__card p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+  .aside__card a.link { color: var(--accent); font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+  .aside__card.dark { background: var(--coal); color: #EFE9D8; border-color: transparent; position: relative; overflow: hidden; }
+  .aside__card.dark::after {
+    content: ""; position: absolute; right: -50px; top: -50px; width: 160px; height: 160px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--accent), transparent 70%);
+    opacity: 0.35; pointer-events: none;
+  }
+  .aside__card.dark p { color: #c9c3b2; }
+  .hours { display: grid; gap: 6px; font-size: 13px; color: var(--ink-2); }
+  .hours div { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--hair); }
+  .hours div:last-child { border-bottom: 0; }
+  .hours b { font-weight: 500; color: var(--ink); }
+  .aside__card.dark .hours { color: #c9c3b2; }
+  .aside__card.dark .hours div { border-bottom-color: #ffffff1f; }
+  .aside__card.dark .hours b { color: #fff; }
+
+  /* Success state */
+  .success {
+    display: none; text-align: center; padding: 48px 24px;
+    border: 1px solid var(--hair); border-radius: 18px; background: var(--paper);
+  }
+  .success.show { display: block; }
+  .success .ok { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: white; display: grid; place-items: center; margin: 0 auto 20px; font-size: 28px; font-family: "Instrument Serif"; }
+  .success h3 { font-family: "Instrument Serif"; font-size: 32px; margin: 0 0 10px; font-weight: 400; }
+  .success p { color: var(--muted); margin: 0 0 20px; }
+  form.hide { display: none; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--hair); padding: 32px 0; font-size: 12px; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav__row">
+    <a href="index.html" class="brand">
+      <span class="brand__dot"></span>
+      <span>iChannel <span class="brand__sub">Technologies — EST. 2010</span></span>
+    </a>
+    <a class="back" href="index.html">← Back to home</a>
+  </div>
+</nav>
+
+<header class="c-hero">
+  <div class="wrap">
+    <div class="c-hero__grid">
+      <div>
+        <span class="label">Send us a brief</span>
+        <h1>Tell us what <em>you're building.</em></h1>
+      </div>
+      <p>A few details about your project help us route your message to the right person. We reply within one working day — usually the same day.</p>
+    </div>
+  </div>
+</header>
+
+<section class="body">
+  <div class="wrap">
+    <div class="body__grid">
+      <!-- Form -->
+      <div>
+        <form id="briefForm" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" required placeholder="Chidi Okafor" />
+            </div>
+            <div class="field">
+              <label for="f-company">Company</label>
+              <input id="f-company" name="company" type="text" placeholder="Acme Co. or freelance" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="f-email">Work email</label>
+              <input id="f-email" name="email" type="email" required placeholder="you@company.com" />
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone (optional)</label>
+              <input id="f-phone" name="phone" type="tel" placeholder="+234 ..." />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>What do you need help with?</label>
+            <div class="chips" id="chips">
+              <label class="chip"><input type="checkbox" name="interest" value="Web app"><span class="dot"></span>Web app</label>
+              <label class="chip"><input type="checkbox" name="interest" value="Mobile app"><span class="dot"></span>Mobile app</label>
+              <label class="chip"><input type="checkbox" name="interest" value="Cloud infra"><span class="dot"></span>Cloud infra</label>
+              <label class="chip"><input type="checkbox" name="interest" value="IT consulting"><span class="dot"></span>IT consulting</label>
+              <label class="chip"><input type="checkbox" name="interest" value="EdTech"><span class="dot"></span>EdTech</label>
+              <label class="chip"><input type="checkbox" name="interest" value="Help desk"><span class="dot"></span>Help desk</label>
+              <label class="chip"><input type="checkbox" name="interest" value="Not sure yet"><span class="dot"></span>Not sure yet</label>
+            </div>
+          </div>
+
+          <div class="field budget">
+            <label for="f-budget">Budget range</label>
+            <div class="budget__val"><em id="budget-val">$15k – $30k</em></div>
+            <input id="f-budget" name="budget" type="range" min="0" max="5" step="1" value="1" />
+            <div class="mono" style="display:flex; justify-content:space-between; color:var(--muted);">
+              <span>Under $5k</span><span>$100k+</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-timeline">When do you need it?</label>
+            <select id="f-timeline" name="timeline">
+              <option>ASAP — already behind</option>
+              <option selected>Next 1–3 months</option>
+              <option>This quarter</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-message">Tell us about the project</label>
+            <textarea id="f-message" name="message" required placeholder="What are you building? What's the current state? What would success look like in six months?"></textarea>
+          </div>
+
+          <div class="submit-row">
+            <div class="mono" style="color:var(--muted);">We reply within 24 hours</div>
+            <button class="submit" type="submit">
+              Send brief
+              <span class="arrow"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8 L8 2 M4 2 H8 V6"/></svg></span>
+            </button>
+          </div>
+        </form>
+
+        <div class="success" id="success" aria-live="polite">
+          <div class="ok">✓</div>
+          <h3>Brief received.</h3>
+          <p>Thanks — we've got your message. Expect a reply from the team within one working day.</p>
+          <a class="back" href="index.html" style="display:inline-flex;">← Back to home</a>
+        </div>
+      </div>
+
+      <!-- Aside -->
+      <aside class="aside">
+        <div class="aside__card">
+          <span class="label">Direct lines</span>
+          <h3>Prefer email or phone?</h3>
+          <p>Both reach us the same day.</p>
+          <div style="display:grid; gap:8px; margin-top:4px;">
+            <a class="link" href="mailto:hello@ichanneltech.com">hello@ichanneltech.com →</a>
+            <a class="link" href="tel:+2348000000000">+234 800 000 0000 →</a>
+          </div>
+        </div>
+
+        <div class="aside__card dark">
+          <span class="label" style="color:#bfb9a9;">Working hours</span>
+          <h3 style="color:#fff;">When we're live.</h3>
+          <div class="hours">
+            <div><span>Mon – Thu</span><b>09:00 — 18:00 WAT</b></div>
+            <div><span>Friday</span><b>09:00 — 14:00 WAT</b></div>
+            <div><span>Weekend</span><b>Monitoring only</b></div>
+          </div>
+          <p style="margin-top:6px;">Production incidents are handled 24/7 for retained clients.</p>
+        </div>
+
+        <div class="aside__card">
+          <span class="label">Visit</span>
+          <h3>Ibadan HQ</h3>
+          <p>Queen Elizabeth Road, Mokola<br>Ibadan 200212, Nigeria</p>
+          <a class="link" href="https://maps.google.com/?q=Mokola+Ibadan" target="_blank" rel="noopener">Open in Maps →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2010–2026 IChannel Technologies. All rights reserved.</div>
+    <div><a href="privacy.html">Privacy &amp; Cookies</a> · <a href="index.html">Back to home</a></div>
+  </div>
+</footer>
+
+<script>
+  // Theme sync
+  document.documentElement.setAttribute('data-theme', localStorage.getItem('ic-theme') || 'system');
+
+  // Interest chips
+  document.querySelectorAll('.chip').forEach(c => {
+    c.addEventListener('click', e => {
+      if (e.target.tagName !== 'INPUT') {
+        const cb = c.querySelector('input');
+        cb.checked = !cb.checked;
+      }
+      c.classList.toggle('on', c.querySelector('input').checked);
+    });
+  });
+
+  // Budget slider
+  const ranges = ['Under $5k', '$5k – $15k', '$15k – $30k', '$30k – $60k', '$60k – $100k', '$100k+'];
+  const bSlider = document.getElementById('f-budget');
+  const bVal = document.getElementById('budget-val');
+  function setBudget() { bVal.textContent = ranges[+bSlider.value]; }
+  bSlider.addEventListener('input', setBudget);
+  setBudget();
+
+  // Form submit
+  const form = document.getElementById('briefForm');
+  const success = document.getElementById('success');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    form.classList.add('hide');
+    success.classList.add('show');
+    success.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+</script>
+</body>
+</html>
