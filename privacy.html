@@ -52,10 +52,13 @@
   /* Nav */
   .nav { position: sticky; top: 0; z-index: 50; background: color-mix(in oklab, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--hair); }
   .nav__row { display: flex; align-items: center; gap: 28px; height: 72px; }
-  .brand { display: flex; align-items: center; gap: 10px; font-family: "Instrument Serif", serif; font-size: 24px; }
-  .brand__dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; }
-  .brand__sub { font-family: "Inter Tight"; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); display: block; line-height: 1; }
-  @media (max-width: 700px) { .brand__sub { display: none; } .brand { font-size: 20px; } }
+  .brand { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px; color: rgb(51, 51, 51); text-decoration: none; }
+  .brand__name { font-family: "Inter Tight", sans-serif; font-size: 22px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; color: inherit; }
+  .brand__tag  { font-family: "Inter Tight", sans-serif; font-size: 7.5px; font-weight: 500; line-height: 1; letter-spacing: 0.22em; text-transform: uppercase; color: inherit; opacity: 0.55; }
+  html[data-theme="dark"] .brand { color: #EFE9D8; }
+  @media (prefers-color-scheme: dark) { html[data-theme="system"] .brand { color: #EFE9D8; } }
+  @media (max-width: 899px) { .brand__name { font-size: 19px; } .brand__tag { font-size: 6.5px; } }
+  @media (max-width: 420px) { .brand__name { font-size: 17px; } .brand__tag { letter-spacing: 0.16em; } }
   .back { margin-left: auto; display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--ink); font-size: 13px; }
   .back:hover { background: var(--ink); color: var(--bg); }
 
@@ -163,8 +166,8 @@
 <nav class="nav">
   <div class="wrap nav__row">
     <a href="index.html" class="brand">
-      <span class="brand__dot"></span>
-      <span>iChannel <span class="brand__sub">Technologies — EST. 2010</span></span>
+      <span class="brand__name">IChannel</span>
+      <span class="brand__tag">Technologies</span>
     </a>
     <a class="back" href="index.html">
       ← Back to home
