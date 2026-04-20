@@ -250,9 +250,11 @@
   }
   .hero__image {
     position: relative; border-radius: 18px; overflow: hidden;
-    aspect-ratio: 16/9; background: var(--sand);
+    aspect-ratio: 3/2; background: var(--sand);
   }
-  .hero__image img { width: 100%; height: 100%; object-fit: cover; }
+  @media (min-width: 600px) { .hero__image { aspect-ratio: 4/3; border-radius: 14px; } }
+  @media (min-width: 900px) { .hero__image { aspect-ratio: 16/7; border-radius: 18px; } }
+  .hero__image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
   .hero__tags { position: absolute; left: 18px; bottom: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
   .tag { background: #ffffffE6; color: var(--ink); padding: 8px 14px; border-radius: 999px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; backdrop-filter: blur(4px); }
   .tag.accent { background: var(--accent); color: white; }
