@@ -1,43 +1,52 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>IChannel Technologies — Digital, Cloud & IT Consulting</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet" />
-  <script>
-    // Tweakable defaults. Do not rename these markers.
-    window.__TWEAKS__ = /*EDITMODE-BEGIN*/{
-      "accent": "#326bc8",
-      "bg": "#F8F7F3",
-      "heroWord": "Growth",
-      "navStyle": "light"
-    }/*EDITMODE-END*/;
-  </script>
-  <style>
-    :root {
-      --bg: #F8F7F3;
-      --ink: #1A1915;
-      --ink-2: #3A3832;
-      --muted: #6B6860;
-      --hair: #1A191522;
-      --sand: #ECE6D6;
-      --sand-2: #E1D9C4;
-      --paper: #FFFFFF;
-      --coal: #14130F;
-      --accent: #326BC8;
-      --accent-ink: #ffffff;
-      --max: 1360px;
-      --gutter: clamp(20px, 4vw, 48px);
-      color-scheme: light;
-    }
-
-    html[data-theme="dark"] {
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>IChannel Technologies — Digital, Cloud & IT Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script>
+  // Tweakable defaults. Do not rename these markers.
+  window.__TWEAKS__ = /*EDITMODE-BEGIN*/{
+    "accent": "#326bc8",
+    "bg": "#F8F7F3",
+    "heroWord": "Growth",
+    "navStyle": "light"
+  }/*EDITMODE-END*/;
+</script>
+<style>
+  :root {
+    --bg: #F8F7F3;
+    --ink: #1A1915;
+    --ink-2: #3A3832;
+    --muted: #6B6860;
+    --hair: #1A191522;
+    --sand: #ECE6D6;
+    --sand-2: #E1D9C4;
+    --paper: #FFFFFF;
+    --coal: #14130F;
+    --accent: #326BC8;
+    --accent-ink: #ffffff;
+    --max: 1360px;
+    --gutter: clamp(20px, 4vw, 48px);
+    color-scheme: light;
+  }
+  html[data-theme="dark"] {
+    --bg: #14130F;
+    --ink: #EFE9D8;
+    --ink-2: #C9C3B2;
+    --muted: #8A8576;
+    --hair: #EFE9D81F;
+    --sand: #26231E;
+    --sand-2: #33302A;
+    --paper: #1C1B17;
+    --coal: #0A0907;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    html[data-theme="system"] {
       --bg: #14130F;
       --ink: #EFE9D8;
       --ink-2: #C9C3B2;
@@ -49,2438 +58,1045 @@
       --coal: #0A0907;
       color-scheme: dark;
     }
-
-    @media (prefers-color-scheme: dark) {
-      html[data-theme="system"] {
-        --bg: #14130F;
-        --ink: #EFE9D8;
-        --ink-2: #C9C3B2;
-        --muted: #8A8576;
-        --hair: #EFE9D81F;
-        --sand: #26231E;
-        --sand-2: #33302A;
-        --paper: #1C1B17;
-        --coal: #0A0907;
-        color-scheme: dark;
-      }
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Inter Tight", system-ui, -apple-system, Segoe UI, sans-serif;
-      font-size: 16px;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      font-feature-settings: "ss01";
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-      color: inherit;
-      background: none;
-      border: 0;
-      padding: 0;
-      cursor: pointer;
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-    }
-
-    .serif {
-      font-family: "Instrument Serif", "Times New Roman", serif;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-    }
-
-    .mono {
-      font-family: "JetBrains Mono", ui-monospace, monospace;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .label {
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--muted);
-    }
-
-    .label::before {
-      content: "";
-      display: inline-block;
-      width: 22px;
-      height: 1px;
-      background: currentColor;
-      vertical-align: middle;
-      margin-right: 10px;
-      transform: translateY(-2px);
-    }
-
-    /* ---------- Marquee ticker ---------- */
-    .ticker {
-      background: var(--coal);
-      color: #EFE9D8;
-      border-bottom: 1px solid #2a2925;
-      overflow: hidden;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .ticker__track {
-      display: flex;
-      gap: 56px;
-      padding: 10px 0;
-      white-space: nowrap;
-      animation: tick 40s linear infinite;
-      width: max-content;
-    }
-
-    .ticker span {
-      opacity: 0.85;
-    }
-
-    .ticker span b {
-      color: var(--accent);
-      font-weight: 500;
-      margin-right: 10px;
-    }
-
-    @keyframes tick {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    /* ---------- Nav ---------- */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: color-mix(in oklab, var(--bg) 88%, transparent);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--hair);
-    }
-
-    .nav.dark {
-      background: #14130FDD;
-      color: #EFE9D8;
-      border-bottom-color: #ffffff14;
-    }
-
-    .nav__row {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      height: 72px;
-    }
-
-    .brand {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2px;
-      color: rgb(51, 51, 51);
-      text-decoration: none;
-    }
-
-    .brand__name {
-      font-family: "Inter Tight", sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      color: inherit;
-    }
-
-    .brand__tag {
-      font-family: "Inter Tight", sans-serif;
-      font-size: 7.5px;
-      font-weight: 500;
-      line-height: 1;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: inherit;
-      opacity: 0.55;
-    }
-
-    .nav.dark .brand {
-      color: #EFE9D8;
-    }
-
-    html[data-theme="dark"] .brand {
-      color: #EFE9D8;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      html[data-theme="system"] .brand {
-        color: #EFE9D8;
-      }
-    }
-
-    /* Footer brand — slightly larger */
-    .foot__top .brand__name {
-      font-size: 26px;
-    }
-
-    .foot__top .brand__tag {
-      font-size: 8.5px;
-    }
-
-    /* Responsive */
-    @media (max-width: 899px) {
-      .brand__name {
-        font-size: 19px;
-      }
-
-      .brand__tag {
-        font-size: 6.5px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .brand__name {
-        font-size: 17px;
-      }
-
-      .brand__tag {
-        letter-spacing: 0.16em;
-      }
-    }
-
-    .nav__links {
-      display: none;
-      gap: 28px;
-      margin-left: auto;
-    }
-
-    .nav__links a {
-      font-size: 14px;
-      position: relative;
-      padding: 4px 0;
-    }
-
-    .nav__links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 100%;
-      bottom: -2px;
-      height: 1px;
-      background: currentColor;
-      transition: right .3s ease;
-    }
-
-    .nav__links a:hover::after {
-      right: 0;
-    }
-
-    .nav__cta {
-      margin-left: auto;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--ink);
-      font-size: 13px;
-      letter-spacing: 0.02em;
-      transition: transform .2s ease, background .2s ease, color .2s ease;
-    }
-
-    .nav.dark .btn {
-      border-color: #ffffff55;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn--fill {
-      background: var(--ink);
-      color: var(--bg);
-    }
-
-    .nav.dark .btn--fill {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-    }
-
-    .btn--fill:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-    }
-
-    .btn__arrow {
-      width: 18px;
-      height: 18px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: currentColor;
-    }
-
-    .btn__arrow svg {
-      width: 10px;
-      height: 10px;
-      color: var(--bg);
-    }
-
-    .btn--fill .btn__arrow svg {
-      color: var(--ink);
-    }
-
-    .burger {
-      display: inline-flex;
-      flex-direction: column;
-      gap: 5px;
-      width: 28px;
-      height: 28px;
-      align-items: center;
-      justify-content: center;
-      margin-left: auto;
-    }
-
-    .burger span {
-      width: 22px;
-      height: 1.5px;
-      background: currentColor;
-      display: block;
-    }
-
-    @media (min-width: 900px) {
-      .nav__links {
-        display: flex;
-        margin-left: auto;
-      }
-
-      .nav__cta {
-        margin-left: 0;
-      }
-
-      .burger {
-        display: none;
-      }
-    }
-
-    .mobile {
-      display: none;
-      position: fixed;
-      inset: 72px 0 0 0;
-      background: var(--bg);
-      z-index: 49;
-      padding: 40px var(--gutter);
-      animation: fade .25s ease;
-    }
-
-    .mobile.open {
-      display: block;
-    }
-
-    .mobile a {
-      display: block;
-      font-family: "Instrument Serif", serif;
-      font-size: 44px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--hair);
-    }
-
-    .mobile a .num {
-      font-family: "JetBrains Mono";
-      font-size: 10px;
-      color: var(--muted);
-      vertical-align: super;
-      margin-right: 14px;
-    }
-
-    @keyframes fade {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* Theme switch */
-    .theme-switch {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 0;
-      border: 1px solid var(--hair);
-      border-radius: 999px;
-      padding: 3px;
-      background: color-mix(in oklab, var(--paper) 60%, transparent);
-      margin-left: auto;
-    }
-
-    .theme-switch button {
-      position: relative;
-      z-index: 2;
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      color: var(--muted);
-      transition: color .25s ease;
-    }
-
-    .theme-switch button[aria-pressed="true"] {
-      color: var(--ink);
-    }
-
-    .theme-switch button:hover {
-      color: var(--ink);
-    }
-
-    .theme-switch__pill {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      background: var(--bg);
-      border: 1px solid var(--hair);
-      transition: transform .3s cubic-bezier(.4, 0, .2, 1);
-      z-index: 1;
-    }
-
-    html[data-theme="light"] .theme-switch__pill {
-      transform: translateX(0);
-    }
-
-    html[data-theme="system"] .theme-switch__pill {
-      transform: translateX(30px);
-    }
-
-    html[data-theme="dark"] .theme-switch__pill {
-      transform: translateX(60px);
-    }
-
-    @media (max-width: 520px) {
-      .theme-switch button {
-        width: 26px;
-        height: 26px;
-      }
-
-      .theme-switch__pill {
-        width: 26px;
-        height: 26px;
-      }
-
-      html[data-theme="system"] .theme-switch__pill {
-        transform: translateX(26px);
-      }
-
-      html[data-theme="dark"] .theme-switch__pill {
-        transform: translateX(52px);
-      }
-    }
-
-    /* Responsive nav CTA */
-    .nav__schedule-short {
-      display: inline;
-    }
-
-    .nav__schedule-long {
-      display: none;
-    }
-
-    @media (min-width: 700px) {
-      .nav__schedule-short {
-        display: none;
-      }
-
-      .nav__schedule-long {
-        display: inline;
-      }
-    }
-
-    @media (max-width: 899px) {
-      .nav__row {
-        gap: 12px;
-        height: 64px;
-      }
-
-      .nav__schedule {
-        padding: 10px 14px;
-        font-size: 12px;
-        gap: 8px;
-      }
-
-      .nav__schedule .btn__arrow {
-        width: 16px;
-        height: 16px;
-      }
-
-      .mobile {
-        inset: 64px 0 0 0;
-      }
-
-      .mobile a {
-        font-size: 36px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .nav__schedule {
-        padding: 9px 12px;
-      }
-    }
-
-    /* ---------- Hero ---------- */
-    .hero {
-      padding: 56px 0 40px;
-      position: relative;
-    }
-
-    .hero__grid {
-      display: grid;
-      gap: 32px;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 900px) {
-      .hero__grid {
-        grid-template-columns: 1.05fr 0.95fr;
-        align-items: end;
-        gap: 48px;
-      }
-    }
-
-    .hero__bigword {
-      font-family: "Instrument Serif", serif;
-      font-style: italic;
-      font-size: clamp(96px, 18vw, 260px);
-      line-height: 0.88;
-      letter-spacing: -0.02em;
-      margin: 0;
-    }
-
-    .hero__bigword .ampersand {
-      color: var(--accent);
-      font-style: italic;
-    }
-
-    .hero__tagline {
-      display: grid;
-      gap: 18px;
-      max-width: 460px;
-      margin-left: auto;
-      padding-bottom: 8px;
-    }
-
-    .hero__tagline h1 {
-      font-family: "Instrument Serif", serif;
-      font-size: clamp(28px, 3.2vw, 42px);
-      line-height: 1.08;
-      font-weight: 400;
-      margin: 0;
-      letter-spacing: -0.01em;
-      text-wrap: balance;
-    }
-
-    .hero__tagline p {
-      color: var(--ink-2);
-      margin: 0;
-      max-width: 42ch;
-    }
-
-    .hero__media {
-      margin-top: 32px;
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    @media (min-width: 900px) {
-      .hero__media {
-        grid-template-columns: 2fr 1fr;
-        gap: 20px;
-        align-items: stretch;
-      }
-    }
-
-    .hero__image {
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      aspect-ratio: 3/2;
-      background: var(--sand);
-    }
-
-    @media (min-width: 600px) {
-      .hero__image {
-        aspect-ratio: 4/3;
-        border-radius: 14px;
-      }
-    }
-
-    @media (min-width: 900px) {
-      .hero__image {
-        aspect-ratio: 16/7;
-        border-radius: 18px;
-      }
-    }
-
-    .hero__image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .hero__tags {
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      background: #ffffffE6;
-      color: var(--ink);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      backdrop-filter: blur(4px);
-    }
-
-    .tag.accent {
-      background: var(--accent);
-      color: white;
-    }
-
-    .hero__testimonial {
-      background: var(--coal);
-      color: #EFE9D8;
-      border-radius: 18px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero__testimonial::after {
-      content: "";
-      position: absolute;
-      right: -40px;
-      top: -40px;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, var(--accent) 0%, transparent 70%);
-      opacity: 0.35;
-    }
-
-    .hero__testimonial .stars {
-      display: flex;
-      gap: 4px;
-      color: var(--accent);
-    }
-
-    .hero__testimonial blockquote {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.35;
-      font-family: "Instrument Serif", serif;
-    }
-
-    .hero__testimonial .who {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 13px;
-    }
-
-    .hero__testimonial .who .avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--sand-2);
-      display: grid;
-      place-items: center;
-      color: var(--ink);
-      font-family: "Instrument Serif";
-      font-size: 16px;
-    }
-
-    /* Scroll cue */
-    .scroll-cue {
-      margin-top: 28px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .scroll-cue .line {
-      width: 40px;
-      height: 1px;
-      background: currentColor;
-    }
-
-    /* ---------- About / stats ---------- */
-    .about {
-      padding: 96px 0 64px;
-    }
-
-    .about__grid {
-      display: grid;
-      gap: 40px;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 900px) {
-      .about__grid {
-        grid-template-columns: 0.9fr 1.3fr;
-        gap: 64px;
-        align-items: end;
-      }
-    }
-
-    .about h2 {
-      font-family: "Instrument Serif", serif;
-      font-weight: 400;
-      font-size: clamp(32px, 3.4vw, 52px);
-      line-height: 1.08;
-      letter-spacing: -0.015em;
-      margin: 20px 0 0;
-      text-wrap: balance;
-    }
-
-    .about h2 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px 32px;
-      padding: 40px 0;
-      border-top: 1px solid var(--hair);
-      margin-top: 48px;
-    }
-
-    @media (min-width: 900px) {
-      .stats {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .stat {
-      display: grid;
-      gap: 8px;
-    }
-
-    .stat__num {
-      font-family: "Instrument Serif", serif;
-      font-size: clamp(48px, 5vw, 72px);
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .stat__num sup {
-      font-size: 0.5em;
-      color: var(--accent);
-      vertical-align: super;
-    }
-
-    .stat__label {
-      font-size: 13px;
-      color: var(--muted);
-      max-width: 22ch;
-    }
-
-    /* ---------- Services ---------- */
-    .services {
-      padding: 64px 0 96px;
-    }
-
-    .services__head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .services__head h2 {
-      font-family: "Instrument Serif", serif;
-      font-weight: 400;
-      font-size: clamp(36px, 4.2vw, 64px);
-      line-height: 1;
-      margin: 12px 0 0;
-      max-width: 12ch;
-      letter-spacing: -0.015em;
-    }
-
-    .services__head h2 em {
-      font-style: italic;
-    }
-
-    .services__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      border-top: 1px solid var(--hair);
-    }
-
-    @media (min-width: 700px) {
-      .services__grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1100px) {
-      .services__grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .svc {
-      padding: 36px 28px 36px 0;
-      border-bottom: 1px solid var(--hair);
-      position: relative;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 16px;
-      transition: background .3s ease, padding .3s ease;
-    }
-
-    @media (min-width: 700px) {
-      .svc {
-        padding: 36px 28px;
-        border-right: 1px solid var(--hair);
-      }
-
-      .svc:nth-child(2n) {
-        border-right: 0;
-      }
-    }
-
-    @media (min-width: 1100px) {
-      .svc:nth-child(2n) {
-        border-right: 1px solid var(--hair);
-      }
-
-      .svc:nth-child(3n) {
-        border-right: 0;
-      }
-    }
-
-    .svc:hover {
-      background: var(--sand);
-    }
-
-    .svc__num {
-      font-family: "JetBrains Mono";
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-    }
-
-    .svc__title {
-      font-family: "Instrument Serif", serif;
-      font-size: 28px;
-      line-height: 1.1;
-      font-weight: 400;
-      margin: 0;
-      letter-spacing: -0.01em;
-    }
-
-    .svc__desc {
-      color: var(--ink-2);
-      font-size: 14.5px;
-      max-width: 38ch;
-    }
-
-    .svc__cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .svc__cta .arrow {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      border: 1px solid currentColor;
-      display: grid;
-      place-items: center;
-      transition: transform .3s ease, background .3s ease, color .3s ease;
-    }
-
-    .svc:hover .svc__cta .arrow {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-      transform: rotate(-45deg);
-    }
-
-    /* ---------- Process ---------- */
-    .process {
-      padding: 96px 0;
-      background: var(--coal);
-      color: #EFE9D8;
-    }
-
-    .process .wrap {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-
-    @media (min-width: 900px) {
-      .process .wrap {
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 80px;
-        align-items: center;
-      }
-    }
-
-    .process h2 {
-      font-family: "Instrument Serif", serif;
-      font-weight: 400;
-      font-size: clamp(36px, 4.5vw, 68px);
-      line-height: 1;
-      letter-spacing: -0.015em;
-      margin: 20px 0 0;
-    }
-
-    .process h2 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .process .label {
-      color: #bfb9a9;
-    }
-
-    .process .label::before {
-      background: #bfb9a9;
-    }
-
-    .steps {
-      display: grid;
-      gap: 0;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 80px 1fr auto;
-      gap: 20px;
-      padding: 24px 0;
-      border-top: 1px solid #ffffff1f;
-      align-items: start;
-    }
-
-    .step:last-child {
-      border-bottom: 1px solid #ffffff1f;
-    }
-
-    .step__num {
-      font-family: "Instrument Serif", serif;
-      font-style: italic;
-      font-size: 44px;
-      line-height: 1;
-      color: var(--accent);
-    }
-
-    .step__title {
-      font-family: "Instrument Serif", serif;
-      font-size: 24px;
-      margin: 0 0 6px;
-      font-weight: 400;
-    }
-
-    .step__body {
-      color: #c9c3b2;
-      font-size: 14.5px;
-      max-width: 48ch;
-    }
-
-    .step__toggle {
-      color: #bfb9a9;
-      font-size: 20px;
-      font-family: "Instrument Serif";
-      padding-top: 6px;
-    }
-
-    /* ---------- Editorial / big statement ---------- */
-    .statement {
-      padding: 120px 0;
-      border-top: 1px solid var(--hair);
-    }
-
-    .statement p {
-      font-family: "Instrument Serif", serif;
-      font-size: clamp(44px, 7vw, 120px);
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-      margin: 0;
-      text-wrap: balance;
-    }
-
-    .statement .inline-img {
-      display: inline-block;
-      vertical-align: middle;
-      width: clamp(80px, 10vw, 160px);
-      height: clamp(50px, 6vw, 96px);
-      border-radius: 999px;
-      overflow: hidden;
-      margin: 0 12px;
-      background: var(--sand);
-    }
-
-    .statement .inline-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .statement em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    /* ---------- Work / projects ---------- */
-    .work {
-      padding: 96px 0;
-    }
-
-    .work__head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .work__head h2 {
-      font-family: "Instrument Serif", serif;
-      font-weight: 400;
-      font-size: clamp(36px, 4.2vw, 64px);
-      line-height: 1;
-      margin: 12px 0 0;
-      letter-spacing: -0.015em;
-      max-width: 14ch;
-    }
-
-    .work__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    @media (min-width: 700px) {
-      .work__grid {
-        grid-template-columns: 2fr 1fr;
-      }
-
-      .work__grid> :nth-child(3) {
-        grid-column: 1/3;
-      }
-    }
-
-    @media (min-width: 1100px) {
-      .work__grid {
-        grid-template-columns: 1.4fr 1fr 1fr;
-      }
-
-      .work__grid> :nth-child(3) {
-        grid-column: auto;
-      }
-    }
-
-    .card {
-      background: var(--paper);
-      border-radius: 18px;
-      overflow: hidden;
-      display: grid;
-      grid-template-rows: 1fr auto;
-      transition: transform .3s ease;
-      border: 1px solid var(--hair);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card__img {
-      aspect-ratio: 4/3;
-      background: var(--sand);
-    }
-
-    .card__img .ph {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      font-family: "JetBrains Mono";
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: repeating-linear-gradient(135deg, var(--sand), var(--sand) 12px, var(--sand-2) 12px, var(--sand-2) 24px);
-    }
-
-    .card__body {
-      padding: 20px 22px 22px;
-      display: grid;
-      gap: 8px;
-    }
-
-    .card__meta {
-      display: flex;
-      gap: 10px;
-      font-family: "JetBrains Mono";
-      font-size: 11px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .card__title {
-      font-family: "Instrument Serif", serif;
-      font-size: 22px;
-      font-weight: 400;
-      margin: 0;
-      letter-spacing: -0.01em;
-    }
-
-    /* ---------- Testimonials carousel ---------- */
-    .tts {
-      padding: 96px 0;
-      background: var(--sand);
-    }
-
-    .tts__head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .tts__head h2 {
-      font-family: "Instrument Serif", serif;
-      font-weight: 400;
-      font-size: clamp(36px, 4.2vw, 56px);
-      line-height: 1;
-      margin: 12px 0 0;
-      max-width: 14ch;
-      letter-spacing: -0.015em;
-    }
-
-    .tts__rail {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(280px, 1fr));
-      gap: 20px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 10px;
-    }
-
-    .tts__rail::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    .tts__rail::-webkit-scrollbar-thumb {
-      background: #0002;
-      border-radius: 10px;
-    }
-
-    .tt {
-      background: var(--paper);
-      border-radius: 16px;
-      padding: 28px;
-      display: grid;
-      gap: 18px;
-      scroll-snap-align: start;
-      border: 1px solid var(--hair);
-    }
-
-    .tt .stars {
-      color: var(--accent);
-      letter-spacing: 4px;
-    }
-
-    .tt blockquote {
-      margin: 0;
-      font-family: "Instrument Serif";
-      font-size: 22px;
-      line-height: 1.2;
-      letter-spacing: -0.005em;
-    }
-
-    .tt__who {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      padding-top: 18px;
-      border-top: 1px solid var(--hair);
-    }
-
-    .tt__who .avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--sand-2);
-      display: grid;
-      place-items: center;
-      font-family: "Instrument Serif";
-      font-size: 18px;
-    }
-
-    .tt__who b {
-      font-weight: 500;
-      display: block;
-      font-size: 14px;
-    }
-
-    .tt__who span {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    @media (max-width: 900px) {
-      .tts__rail {
-        grid-auto-flow: column;
-        grid-auto-columns: 85%;
-        grid-template-columns: none;
-      }
-    }
-
-    /* ---------- Partners ---------- */
-    .partners {
-      padding: 64px 0;
-      border-top: 1px solid var(--hair);
-    }
-
-    .partners__grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0;
-    }
-
-    @media (min-width: 600px) {
-      .partners__grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (min-width: 1100px) {
-      .partners__grid {
-        grid-template-columns: repeat(7, 1fr);
-      }
-    }
-
-    .partner {
-      aspect-ratio: 3/1.5;
-      border: 1px solid var(--hair);
-      margin: -1px 0 0 -1px;
-      display: grid;
-      place-items: center;
-      padding: 16px 20px;
-      transition: background .3s ease;
-    }
-
-    .partner:hover {
-      background: var(--paper);
-    }
-
-    .partner-logo {
-      max-width: 120px;
-      max-height: 44px;
-      width: auto;
-      height: auto;
-      display: block;
-      filter: grayscale(100%) opacity(0.5);
-      transition: filter 0.35s ease;
-    }
-
-    .partner:hover .partner-logo {
-      filter: grayscale(100%) opacity(0.85);
-    }
-
-    html[data-theme="dark"] .partner-logo {
-      filter: grayscale(100%) invert(1) opacity(0.45);
-    }
-
-    html[data-theme="dark"] .partner:hover .partner-logo {
-      filter: grayscale(100%) invert(1) opacity(0.8);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      html[data-theme="system"] .partner-logo {
-        filter: grayscale(100%) invert(1) opacity(0.45);
-      }
-
-      html[data-theme="system"] .partner:hover .partner-logo {
-        filter: grayscale(100%) invert(1) opacity(0.8);
-      }
-    }
-
-    /* ---------- Team ---------- */
-    .team {
-      padding: 96px 0;
-    }
-
-    .team__head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .team__head h2 {
-      font-family: "Instrument Serif", serif;
-      font-weight: 400;
-      font-size: clamp(36px, 4.2vw, 64px);
-      line-height: 1;
-      margin: 12px 0 0;
-      letter-spacing: -0.015em;
-      max-width: 12ch;
-    }
-
-    .team__grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    @media (min-width: 600px) {
-      .team__grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .team__grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .member {
-      display: grid;
-      gap: 14px;
-    }
-
-    .member__img {
-      aspect-ratio: 3/4;
-      border-radius: 14px;
-      overflow: hidden;
-      background: repeating-linear-gradient(135deg, var(--sand), var(--sand) 12px, var(--sand-2) 12px, var(--sand-2) 24px);
-      display: grid;
-      place-items: end center;
-      font-family: "JetBrains Mono";
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding-bottom: 16px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .member__img::after {
-      content: "";
-      position: absolute;
-      inset: auto 24% 30% 24%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: #00000015;
-    }
-
-    .member__name {
-      font-family: "Instrument Serif";
-      font-size: 22px;
-      margin: 0;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-    }
-
-    .member__role {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* ---------- CTA + footer ---------- */
-    .cta {
-      padding: 96px 0;
-      border-top: 1px solid var(--hair);
-    }
-
-    .cta__inner {
-      background: var(--coal);
-      color: #EFE9D8;
-      border-radius: 24px;
-      padding: clamp(32px, 6vw, 72px);
-      display: grid;
-      gap: 32px;
-      grid-template-columns: 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-
-    @media (min-width: 900px) {
-      .cta__inner {
-        grid-template-columns: 1.2fr 0.8fr;
-        align-items: end;
-        gap: 48px;
-      }
-    }
-
-    .cta h2 {
-      font-family: "Instrument Serif", serif;
-      font-weight: 400;
-      font-size: clamp(40px, 6vw, 88px);
-      line-height: 0.98;
-      letter-spacing: -0.02em;
-      margin: 0;
-      text-wrap: balance;
-    }
-
-    .cta h2 em {
-      color: var(--accent);
-      font-style: italic;
-    }
-
-    .cta__side {
-      display: grid;
-      gap: 20px;
-      align-content: end;
-    }
-
-    .cta__side p {
-      color: #c9c3b2;
-      max-width: 36ch;
-      margin: 0;
-    }
-
-    .cta .btn {
-      border-color: #ffffff55;
-      color: #EFE9D8;
-    }
-
-    .cta .btn--fill {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
-    }
-
-    .cta__orb {
-      position: absolute;
-      right: -80px;
-      bottom: -80px;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, var(--accent), transparent 70%);
-      opacity: 0.4;
-      pointer-events: none;
-    }
-
-    footer {
-      padding: 64px 0 32px;
-      border-top: 1px solid var(--hair);
-    }
-
-    .foot__top {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
-      padding-bottom: 48px;
-    }
-
-    @media (min-width: 900px) {
-      .foot__top {
-        grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      }
-    }
-
-    .foot h4 {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 18px;
-    }
-
-    .foot a {
-      display: block;
-      padding: 5px 0;
-      font-size: 14px;
-    }
-
-    .foot__bottom {
-      display: flex;
-      justify-content: space-between;
-      padding-top: 24px;
-      border-top: 1px solid var(--hair);
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .newsletter {
-      display: flex;
-      gap: 8px;
-      background: var(--paper);
-      border: 1px solid var(--hair);
-      border-radius: 999px;
-      padding: 6px;
-      margin-top: 14px;
-      max-width: 360px;
-    }
-
-    .newsletter input {
-      flex: 1;
-      border: 0;
-      background: transparent;
-      padding: 10px 16px;
-      font: inherit;
-      outline: none;
-      color: var(--ink);
-    }
-
-    .newsletter button {
-      background: var(--ink);
-      color: var(--bg);
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-size: 13px;
-    }
-
-    .newsletter button:hover {
-      background: var(--accent);
-    }
-
-    /* ---------- Reveal ---------- */
-    .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.in {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ---------- Tweaks panel ---------- */
-    #tweaks {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 100;
-      background: #14130f;
-      color: #efe9d8;
-      border-radius: 14px;
-      padding: 18px;
-      width: 280px;
-      display: none;
-      box-shadow: 0 20px 60px #0004;
-      font-size: 13px;
-    }
-
-    #tweaks.open {
-      display: block;
-    }
-
-    #tweaks h5 {
-      margin: 0 0 14px;
-      font-family: "Instrument Serif";
-      font-size: 20px;
-      font-weight: 400;
-    }
-
-    #tweaks .row {
-      display: grid;
-      gap: 6px;
-      margin-bottom: 14px;
-    }
-
-    #tweaks label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #b8b3a5;
-    }
-
-    #tweaks input,
-    #tweaks select {
-      background: #ffffff10;
-      border: 1px solid #ffffff22;
-      color: inherit;
-      padding: 8px 10px;
-      border-radius: 8px;
-      font: inherit;
-    }
-
-    #tweaks input[type="color"] {
-      padding: 2px;
-      height: 34px;
-    }
-
-    /* Placeholder hero image drawn via CSS — standing in for real photography */
-    .hero-ph {
-      width: 100%;
-      height: 100%;
-      background:
-        radial-gradient(circle at 70% 30%, #f3cf5b 0, transparent 45%),
-        radial-gradient(circle at 20% 80%, var(--accent) 0, transparent 55%),
-        linear-gradient(135deg, #d7cfb8, #b8ad8f);
-      position: relative;
-    }
-
-    .hero-ph::after {
-      content: "TEAM PHOTOGRAPHY";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-family: "JetBrains Mono";
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      color: #00000066;
-    }
-
-    .ph-blue {
-      background: linear-gradient(135deg, var(--accent), #1f4a8f);
-    }
-
-    .ph-sand {
-      background: linear-gradient(135deg, #e6dcc1, #cab994);
-    }
-
-    .ph-dark {
-      background: linear-gradient(135deg, #2a2925, #14130f);
-    }
-  </style>
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter Tight", system-ui, -apple-system, Segoe UI, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01";
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+  .serif { font-family: "Instrument Serif", "Times New Roman", serif; font-weight: 400; letter-spacing: -0.01em; }
+  .mono  { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; color: var(--muted); }
+  .label::before { content: ""; display: inline-block; width: 22px; height: 1px; background: currentColor; vertical-align: middle; margin-right: 10px; transform: translateY(-2px); }
+
+  /* ---------- Marquee ticker ---------- */
+  .ticker {
+    background: var(--coal); color: #EFE9D8;
+    border-bottom: 1px solid #2a2925;
+    overflow: hidden; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .ticker__track { display: flex; gap: 56px; padding: 10px 0; white-space: nowrap; animation: tick 40s linear infinite; width: max-content; }
+  .ticker span { opacity: 0.85; }
+  .ticker span b { color: var(--accent); font-weight: 500; margin-right: 10px; }
+  @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in oklab, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--hair);
+  }
+  .nav.dark { background: #14130FDD; color: #EFE9D8; border-bottom-color: #ffffff14; }
+  .nav__row { display: flex; align-items: center; gap: 28px; height: 72px; }
+  .brand { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px; color: rgb(51, 51, 51); text-decoration: none; }
+  .brand__name { font-family: "Inter Tight", sans-serif; font-size: 22px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; color: inherit; }
+  .brand__tag  { font-family: "Inter Tight", sans-serif; font-size: 7.5px; font-weight: 500; line-height: 1; letter-spacing: 0.22em; text-transform: uppercase; color: inherit; opacity: 0.55; }
+  .nav.dark .brand { color: #EFE9D8; }
+  html[data-theme="dark"] .brand { color: #EFE9D8; }
+  @media (prefers-color-scheme: dark) { html[data-theme="system"] .brand { color: #EFE9D8; } }
+  /* Footer brand — slightly larger */
+  .foot__top .brand__name { font-size: 26px; }
+  .foot__top .brand__tag  { font-size: 8.5px; }
+  /* Responsive */
+  @media (max-width: 899px) { .brand__name { font-size: 19px; } .brand__tag { font-size: 6.5px; } }
+  @media (max-width: 420px) { .brand__name { font-size: 17px; } .brand__tag { letter-spacing: 0.16em; } }
+  .nav__links { display: none; gap: 28px; margin-left: auto; }
+  .nav__links a { font-size: 14px; position: relative; padding: 4px 0; }
+  .nav__links a::after { content:""; position:absolute; left:0; right:100%; bottom:-2px; height:1px; background: currentColor; transition: right .3s ease; }
+  .nav__links a:hover::after { right: 0; }
+  .nav__cta { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 18px; border-radius: 999px;
+    border: 1px solid var(--ink); font-size: 13px; letter-spacing: 0.02em;
+    transition: transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .nav.dark .btn { border-color: #ffffff55; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn--fill { background: var(--ink); color: var(--bg); }
+  .nav.dark .btn--fill { background: var(--accent); border-color: var(--accent); color: white; }
+  .btn--fill:hover { background: var(--accent); border-color: var(--accent); color: white; }
+  .btn__arrow { width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; background: currentColor; }
+  .btn__arrow svg { width: 10px; height: 10px; color: var(--bg); }
+  .btn--fill .btn__arrow svg { color: var(--ink); }
+
+  .burger { display: inline-flex; flex-direction: column; gap: 5px; width: 28px; height: 28px; align-items: center; justify-content: center; margin-left: auto; }
+  .burger span { width: 22px; height: 1.5px; background: currentColor; display: block; }
+
+  @media (min-width: 900px) {
+    .nav__links { display: flex; margin-left: auto; }
+    .nav__cta { margin-left: 0; }
+    .burger { display: none; }
+  }
+
+  .mobile {
+    display: none; position: fixed; inset: 72px 0 0 0; background: var(--bg); z-index: 49;
+    padding: 40px var(--gutter); animation: fade .25s ease;
+  }
+  .mobile.open { display: block; }
+  .mobile a { display: block; font-family: "Instrument Serif", serif; font-size: 44px; padding: 10px 0; border-bottom: 1px solid var(--hair); }
+  .mobile a .num { font-family: "JetBrains Mono"; font-size: 10px; color: var(--muted); vertical-align: super; margin-right: 14px; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Theme switch */
+  .theme-switch {
+    position: relative;
+    display: inline-flex; align-items: center; gap: 0;
+    border: 1px solid var(--hair); border-radius: 999px;
+    padding: 3px; background: color-mix(in oklab, var(--paper) 60%, transparent);
+    margin-left: auto;
+  }
+  .theme-switch button {
+    position: relative; z-index: 2;
+    width: 30px; height: 30px; border-radius: 999px;
+    display: grid; place-items: center;
+    color: var(--muted); transition: color .25s ease;
+  }
+  .theme-switch button[aria-pressed="true"] { color: var(--ink); }
+  .theme-switch button:hover { color: var(--ink); }
+  .theme-switch__pill {
+    position: absolute; top: 3px; left: 3px;
+    width: 30px; height: 30px; border-radius: 999px;
+    background: var(--bg); border: 1px solid var(--hair);
+    transition: transform .3s cubic-bezier(.4,0,.2,1);
+    z-index: 1;
+  }
+  html[data-theme="light"] .theme-switch__pill { transform: translateX(0); }
+  html[data-theme="system"] .theme-switch__pill { transform: translateX(30px); }
+  html[data-theme="dark"] .theme-switch__pill { transform: translateX(60px); }
+  @media (max-width: 520px) {
+    .theme-switch button { width: 26px; height: 26px; }
+    .theme-switch__pill { width: 26px; height: 26px; }
+    html[data-theme="system"] .theme-switch__pill { transform: translateX(26px); }
+    html[data-theme="dark"] .theme-switch__pill { transform: translateX(52px); }
+  }
+
+  /* Responsive nav CTA */
+  .nav__schedule-short { display: inline; }
+  .nav__schedule-long { display: none; }
+  @media (min-width: 700px) {
+    .nav__schedule-short { display: none; }
+    .nav__schedule-long { display: inline; }
+  }
+  @media (max-width: 899px) {
+    .nav__row { gap: 12px; height: 64px; }
+    .nav__schedule { padding: 10px 14px; font-size: 12px; gap: 8px; }
+    .nav__schedule .btn__arrow { width: 16px; height: 16px; }
+    .mobile { inset: 64px 0 0 0; }
+    .mobile a { font-size: 36px; }
+  }
+  @media (max-width: 420px) {
+    .nav__schedule { padding: 9px 12px; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 56px 0 40px; position: relative; }
+  .hero__grid {
+    display: grid; gap: 32px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) {
+    .hero__grid { grid-template-columns: 1.05fr 0.95fr; align-items: end; gap: 48px; }
+  }
+  .hero__bigword {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: clamp(96px, 18vw, 260px);
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .hero__bigword .ampersand { color: var(--accent); font-style: italic; }
+  .hero__tagline {
+    display: grid; gap: 18px;
+    max-width: 460px;
+    margin-left: auto;
+    padding-bottom: 8px;
+  }
+  .hero__tagline h1 {
+    font-family: "Instrument Serif", serif;
+    font-size: clamp(28px, 3.2vw, 42px);
+    line-height: 1.08;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .hero__tagline p { color: var(--ink-2); margin: 0; max-width: 42ch; }
+
+  .hero__media {
+    margin-top: 32px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 900px) {
+    .hero__media { grid-template-columns: 2fr 1fr; gap: 20px; align-items: stretch; }
+  }
+  .hero__image {
+    position: relative; border-radius: 18px; overflow: hidden;
+    aspect-ratio: 3/2; background: var(--sand);
+  }
+  @media (min-width: 600px) { .hero__image { aspect-ratio: 4/3; border-radius: 14px; } }
+  @media (min-width: 900px) { .hero__image { aspect-ratio: 16/7; border-radius: 18px; } }
+  .hero__image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero__tags { position: absolute; left: 18px; bottom: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { background: #ffffffE6; color: var(--ink); padding: 8px 14px; border-radius: 999px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; backdrop-filter: blur(4px); }
+  .tag.accent { background: var(--accent); color: white; }
+
+  .hero__testimonial {
+    background: var(--coal); color: #EFE9D8; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
+    position: relative; overflow: hidden;
+  }
+  .hero__testimonial::after {
+    content: ""; position: absolute; right: -40px; top: -40px; width: 140px; height: 140px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--accent) 0%, transparent 70%);
+    opacity: 0.35;
+  }
+  .hero__testimonial .stars { display: flex; gap: 4px; color: var(--accent); }
+  .hero__testimonial blockquote { margin: 0; font-size: 17px; line-height: 1.35; font-family: "Instrument Serif", serif; }
+  .hero__testimonial .who { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+  .hero__testimonial .who .avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--sand-2); display: grid; place-items: center; color: var(--ink); font-family: "Instrument Serif"; font-size: 16px; }
+
+  /* Scroll cue */
+  .scroll-cue { margin-top: 28px; display: inline-flex; align-items: center; gap: 12px; color: var(--muted); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .scroll-cue .line { width: 40px; height: 1px; background: currentColor; }
+
+  /* ---------- About / stats ---------- */
+  .about { padding: 96px 0 64px; }
+  .about__grid {
+    display: grid; gap: 40px; grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) {
+    .about__grid { grid-template-columns: 0.9fr 1.3fr; gap: 64px; align-items: end; }
+  }
+  .about h2 {
+    font-family: "Instrument Serif", serif; font-weight: 400;
+    font-size: clamp(32px, 3.4vw, 52px); line-height: 1.08; letter-spacing: -0.015em;
+    margin: 20px 0 0; text-wrap: balance;
+  }
+  .about h2 em { font-style: italic; color: var(--accent); }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 32px;
+    padding: 40px 0; border-top: 1px solid var(--hair);
+    margin-top: 48px;
+  }
+  @media (min-width: 900px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+  .stat { display: grid; gap: 8px; }
+  .stat__num { font-family: "Instrument Serif", serif; font-size: clamp(48px, 5vw, 72px); line-height: 1; letter-spacing: -0.02em; }
+  .stat__num sup { font-size: 0.5em; color: var(--accent); vertical-align: super; }
+  .stat__label { font-size: 13px; color: var(--muted); max-width: 22ch; }
+
+  /* ---------- Services ---------- */
+  .services { padding: 64px 0 96px; }
+  .services__head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 20px; margin-bottom: 40px; }
+  .services__head h2 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(36px, 4.2vw, 64px); line-height: 1; margin: 12px 0 0; max-width: 12ch; letter-spacing: -0.015em; }
+  .services__head h2 em { font-style: italic; }
+
+  .services__grid {
+    display: grid; grid-template-columns: 1fr; gap: 0;
+    border-top: 1px solid var(--hair);
+  }
+  @media (min-width: 700px) { .services__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px) { .services__grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .svc {
+    padding: 36px 28px 36px 0;
+    border-bottom: 1px solid var(--hair);
+    position: relative;
+    display: grid; grid-template-rows: auto 1fr auto; gap: 16px;
+    transition: background .3s ease, padding .3s ease;
+  }
+  @media (min-width: 700px) { .svc { padding: 36px 28px; border-right: 1px solid var(--hair); }
+    .svc:nth-child(2n) { border-right: 0; }
+  }
+  @media (min-width: 1100px) {
+    .svc:nth-child(2n) { border-right: 1px solid var(--hair); }
+    .svc:nth-child(3n) { border-right: 0; }
+  }
+  .svc:hover { background: var(--sand); }
+  .svc__num { font-family: "JetBrains Mono"; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; }
+  .svc__title { font-family: "Instrument Serif", serif; font-size: 28px; line-height: 1.1; font-weight: 400; margin: 0; letter-spacing: -0.01em; }
+  .svc__desc { color: var(--ink-2); font-size: 14.5px; max-width: 38ch; }
+  .svc__cta { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .svc__cta .arrow { width: 26px; height: 26px; border-radius: 50%; border: 1px solid currentColor; display: grid; place-items: center; transition: transform .3s ease, background .3s ease, color .3s ease; }
+  .svc:hover .svc__cta .arrow { background: var(--accent); border-color: var(--accent); color: white; transform: rotate(-45deg); }
+
+  /* ---------- Process ---------- */
+  .process { padding: 96px 0; background: var(--coal); color: #EFE9D8; }
+  .process .wrap { display: grid; grid-template-columns: 1fr; gap: 48px; }
+  @media (min-width: 900px) { .process .wrap { grid-template-columns: 0.9fr 1.1fr; gap: 80px; align-items: center; } }
+  .process h2 {
+    font-family: "Instrument Serif", serif; font-weight: 400;
+    font-size: clamp(36px, 4.5vw, 68px); line-height: 1; letter-spacing: -0.015em;
+    margin: 20px 0 0;
+  }
+  .process h2 em { font-style: italic; color: var(--accent); }
+  .process .label { color: #bfb9a9; }
+  .process .label::before { background: #bfb9a9; }
+
+  .steps { display: grid; gap: 0; }
+  .step {
+    display: grid; grid-template-columns: 80px 1fr auto; gap: 20px; padding: 24px 0;
+    border-top: 1px solid #ffffff1f; align-items: start;
+  }
+  .step:last-child { border-bottom: 1px solid #ffffff1f; }
+  .step__num { font-family: "Instrument Serif", serif; font-style: italic; font-size: 44px; line-height: 1; color: var(--accent); }
+  .step__title { font-family: "Instrument Serif", serif; font-size: 24px; margin: 0 0 6px; font-weight: 400; }
+  .step__body { color: #c9c3b2; font-size: 14.5px; max-width: 48ch; }
+  .step__toggle { color: #bfb9a9; font-size: 20px; font-family: "Instrument Serif"; padding-top: 6px; }
+
+  /* ---------- Editorial / big statement ---------- */
+  .statement { padding: 120px 0; border-top: 1px solid var(--hair); }
+  .statement p {
+    font-family: "Instrument Serif", serif;
+    font-size: clamp(44px, 7vw, 120px);
+    line-height: 0.95; letter-spacing: -0.02em;
+    margin: 0; text-wrap: balance;
+  }
+  .statement .inline-img {
+    display: inline-block; vertical-align: middle;
+    width: clamp(80px, 10vw, 160px); height: clamp(50px, 6vw, 96px);
+    border-radius: 999px; overflow: hidden; margin: 0 12px;
+    background: var(--sand);
+  }
+  .statement .inline-img img { width: 100%; height: 100%; object-fit: cover; }
+  .statement em { font-style: italic; color: var(--accent); }
+
+  /* ---------- Work / projects ---------- */
+  .work { padding: 96px 0; }
+  .work__head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 20px; margin-bottom: 40px; }
+  .work__head h2 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(36px, 4.2vw, 64px); line-height: 1; margin: 12px 0 0; letter-spacing: -0.015em; max-width: 14ch; }
+  .work__grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 700px) { .work__grid { grid-template-columns: 2fr 1fr; } .work__grid > :nth-child(3) { grid-column: 1/3; }}
+  @media (min-width: 1100px) { .work__grid { grid-template-columns: 1.4fr 1fr 1fr; } .work__grid > :nth-child(3) { grid-column: auto; }}
+  .card {
+    background: var(--paper); border-radius: 18px; overflow: hidden;
+    display: grid; grid-template-rows: 1fr auto;
+    transition: transform .3s ease;
+    border: 1px solid var(--hair);
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card__img { aspect-ratio: 4/3; background: var(--sand); }
+  .card__img .ph { width: 100%; height: 100%; display: grid; place-items: center; font-family: "JetBrains Mono"; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; background: repeating-linear-gradient(135deg, var(--sand), var(--sand) 12px, var(--sand-2) 12px, var(--sand-2) 24px); }
+  .card__body { padding: 20px 22px 22px; display: grid; gap: 8px; }
+  .card__meta { display: flex; gap: 10px; font-family: "JetBrains Mono"; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .card__title { font-family: "Instrument Serif", serif; font-size: 22px; font-weight: 400; margin: 0; letter-spacing: -0.01em; }
+
+  /* ---------- Testimonials carousel ---------- */
+  .tts { padding: 96px 0; background: var(--sand); }
+  .tts__head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 32px; flex-wrap: wrap; gap: 20px; }
+  .tts__head h2 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(36px, 4.2vw, 56px); line-height: 1; margin: 12px 0 0; max-width: 14ch; letter-spacing: -0.015em; }
+  .tts__rail { display: grid; grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
+  .tts__rail::-webkit-scrollbar { height: 6px; }
+  .tts__rail::-webkit-scrollbar-thumb { background: #0002; border-radius: 10px; }
+  .tt {
+    background: var(--paper); border-radius: 16px; padding: 28px; display: grid; gap: 18px;
+    scroll-snap-align: start; border: 1px solid var(--hair);
+  }
+  .tt .stars { color: var(--accent); letter-spacing: 4px; }
+  .tt blockquote { margin: 0; font-family: "Instrument Serif"; font-size: 22px; line-height: 1.2; letter-spacing: -0.005em; }
+  .tt__who { display: flex; gap: 12px; align-items: center; padding-top: 18px; border-top: 1px solid var(--hair); }
+  .tt__who .avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--sand-2); display: grid; place-items: center; font-family: "Instrument Serif"; font-size: 18px; }
+  .tt__who b { font-weight: 500; display: block; font-size: 14px; }
+  .tt__who span { font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .tts__rail { grid-auto-flow: column; grid-auto-columns: 85%; grid-template-columns: none; }
+  }
+
+  /* ---------- Partners ---------- */
+  .partners { padding: 64px 0; border-top: 1px solid var(--hair); }
+  .partners__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+  @media (min-width: 600px) { .partners__grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1100px) { .partners__grid { grid-template-columns: repeat(7, 1fr); } }
+  .partner { aspect-ratio: 3/1.5; border: 1px solid var(--hair); margin: -1px 0 0 -1px; display: grid; place-items: center; padding: 16px 20px; transition: background .3s ease; }
+  .partner:hover { background: var(--paper); }
+  .partner-logo { max-width: 120px; max-height: 44px; width: auto; height: auto; display: block; filter: grayscale(100%) opacity(0.5); transition: filter 0.35s ease; }
+  .partner:hover .partner-logo { filter: grayscale(100%) opacity(0.85); }
+  html[data-theme="dark"] .partner-logo { filter: grayscale(100%) invert(1) opacity(0.45); }
+  html[data-theme="dark"] .partner:hover .partner-logo { filter: grayscale(100%) invert(1) opacity(0.8); }
+  @media (prefers-color-scheme: dark) {
+    html[data-theme="system"] .partner-logo { filter: grayscale(100%) invert(1) opacity(0.45); }
+    html[data-theme="system"] .partner:hover .partner-logo { filter: grayscale(100%) invert(1) opacity(0.8); }
+  }
+
+  /* ---------- Team ---------- */
+  .team { padding: 96px 0; }
+  .team__head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
+  .team__head h2 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(36px, 4.2vw, 64px); line-height: 1; margin: 12px 0 0; letter-spacing: -0.015em; max-width: 12ch;}
+  .team__grid { display: grid; gap: 20px; grid-template-columns: repeat(1, 1fr); }
+  @media (min-width: 600px) { .team__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .team__grid { grid-template-columns: repeat(4, 1fr); } }
+  .member { display: grid; gap: 14px; }
+  .member__img {
+    aspect-ratio: 3/4; border-radius: 14px; overflow: hidden;
+    background: repeating-linear-gradient(135deg, var(--sand), var(--sand) 12px, var(--sand-2) 12px, var(--sand-2) 24px);
+    display: grid; place-items: end center;
+    font-family: "JetBrains Mono"; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+    padding-bottom: 16px;
+    position: relative; overflow: hidden;
+  }
+  .member__img::after { content: ""; position: absolute; inset: auto 24% 30% 24%; aspect-ratio: 1; border-radius: 50%; background: #00000015; }
+  .member__name { font-family: "Instrument Serif"; font-size: 22px; margin: 0; font-weight: 400; letter-spacing: -0.01em; }
+  .member__role { font-size: 13px; color: var(--muted); }
+
+  /* ---------- CTA + footer ---------- */
+  .cta { padding: 96px 0; border-top: 1px solid var(--hair); }
+  .cta__inner {
+    background: var(--coal); color: #EFE9D8; border-radius: 24px; padding: clamp(32px, 6vw, 72px);
+    display: grid; gap: 32px; grid-template-columns: 1fr; position: relative; overflow: hidden;
+  }
+  @media (min-width: 900px) { .cta__inner { grid-template-columns: 1.2fr 0.8fr; align-items: end; gap: 48px; } }
+  .cta h2 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(40px, 6vw, 88px); line-height: 0.98; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+  .cta h2 em { color: var(--accent); font-style: italic; }
+  .cta__side { display: grid; gap: 20px; align-content: end; }
+  .cta__side p { color: #c9c3b2; max-width: 36ch; margin: 0; }
+  .cta .btn { border-color: #ffffff55; color: #EFE9D8; }
+  .cta .btn--fill { background: var(--accent); border-color: var(--accent); color: white; }
+  .cta__orb { position: absolute; right: -80px; bottom: -80px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, var(--accent), transparent 70%); opacity: 0.4; pointer-events: none; }
+
+  footer { padding: 64px 0 32px; border-top: 1px solid var(--hair); }
+  .foot__top { display: grid; grid-template-columns: 1fr; gap: 32px; padding-bottom: 48px; }
+  @media (min-width: 900px) { .foot__top { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+  .foot h4 { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+  .foot a { display: block; padding: 5px 0; font-size: 14px; }
+  .foot__bottom { display: flex; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--hair); flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--muted); }
+  .newsletter { display: flex; gap: 8px; background: var(--paper); border: 1px solid var(--hair); border-radius: 999px; padding: 6px; margin-top: 14px; max-width: 360px; }
+  .newsletter input { flex: 1; border: 0; background: transparent; padding: 10px 16px; font: inherit; outline: none; color: var(--ink); }
+  .newsletter button { background: var(--ink); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 13px; }
+  .newsletter button:hover { background: var(--accent); }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- Tweaks panel ---------- */
+  #tweaks {
+    position: fixed; right: 20px; bottom: 20px; z-index: 100;
+    background: #14130f; color: #efe9d8; border-radius: 14px; padding: 18px;
+    width: 280px; display: none; box-shadow: 0 20px 60px #0004;
+    font-size: 13px;
+  }
+  #tweaks.open { display: block; }
+  #tweaks h5 { margin: 0 0 14px; font-family: "Instrument Serif"; font-size: 20px; font-weight: 400; }
+  #tweaks .row { display: grid; gap: 6px; margin-bottom: 14px; }
+  #tweaks label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #b8b3a5; }
+  #tweaks input, #tweaks select { background: #ffffff10; border: 1px solid #ffffff22; color: inherit; padding: 8px 10px; border-radius: 8px; font: inherit; }
+  #tweaks input[type="color"] { padding: 2px; height: 34px; }
+
+  /* Placeholder hero image drawn via CSS — standing in for real photography */
+  .hero-ph {
+    width: 100%; height: 100%;
+    background:
+      radial-gradient(circle at 70% 30%, #f3cf5b 0, transparent 45%),
+      radial-gradient(circle at 20% 80%, var(--accent) 0, transparent 55%),
+      linear-gradient(135deg, #d7cfb8, #b8ad8f);
+    position: relative;
+  }
+  .hero-ph::after {
+    content: "TEAM PHOTOGRAPHY"; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    font-family: "JetBrains Mono"; font-size: 11px; letter-spacing: 0.15em; color: #00000066;
+  }
+  .ph-blue { background: linear-gradient(135deg, var(--accent), #1f4a8f); }
+  .ph-sand { background: linear-gradient(135deg, #e6dcc1, #cab994); }
+  .ph-dark { background: linear-gradient(135deg, #2a2925, #14130f); }
+</style>
 </head>
-
 <body>
 
-  <!-- Ticker removed -->
+<!-- Ticker removed -->
 
-  <!-- Nav -->
-  <nav class="nav" id="nav">
-    <div class="wrap nav__row">
-      <a href="#home" class="brand">
-        <span class="brand__name">IChannel</span>
-        <span class="brand__tag">Technologies</span>
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="wrap nav__row">
+    <a href="#home" class="brand">
+      <span class="brand__name">IChannel</span>
+      <span class="brand__tag">Technologies</span>
+    </a>
+    <div class="nav__links">
+      <a href="#who">Who we are</a>
+      <a href="#services">Services</a>
+      <a href="#partners">Our Partners</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="theme-switch" role="group" aria-label="Theme">
+      <button data-theme-btn="light" aria-label="Light theme" title="Light"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3"/></svg></button>
+      <button data-theme-btn="system" aria-label="System theme" title="System"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="2.5" width="13" height="9" rx="1"/><path d="M5 14h6M8 11.5V14"/></svg></button>
+      <button data-theme-btn="dark" aria-label="Dark theme" title="Dark"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 9.5A5.5 5.5 0 1 1 6.5 3a4.5 4.5 0 0 0 6.5 6.5z"/></svg></button>
+      <span class="theme-switch__pill" aria-hidden="true"></span>
+    </div>
+    <div class="nav__cta">
+      <a class="btn btn--fill nav__schedule" href="#contact">
+        <span class="nav__schedule-long">Schedule a call</span>
+        <span class="nav__schedule-short">Contact</span>
+        <span class="btn__arrow"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8 L8 2 M4 2 H8 V6"/></svg></span>
       </a>
-      <div class="nav__links">
+      <button class="burger" aria-label="Open menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile" id="mobile">
+  <a href="#who" onclick="toggleMenu()"><span class="num">01</span>Who we are</a>
+  <a href="#services" onclick="toggleMenu()"><span class="num">02</span>Services</a>
+  <a href="#partners" onclick="toggleMenu()"><span class="num">03</span>Our Partners</a>
+  <a href="#contact" onclick="toggleMenu()"><span class="num">04</span>Contact</a>
+</div>
+
+<!-- Hero -->
+<header class="hero" id="home">
+  <div class="wrap">
+    <div class="hero__grid">
+      <h1 class="hero__bigword reveal" aria-label="Automate the digital edge">
+        <span id="heroWord" style="font-weight: 500">Automate</span><span class="ampersand">.</span>
+      </h1>
+      <div class="hero__tagline reveal">
+        <span class="label">Center of Innovation</span>
+        <h1>The software, cloud and consulting partner helping African businesses harness digital.</h1>
+        <p>From first sketch to production deployment, we design, build and operate the systems your team runs on.</p>
+      </div>
+    </div>
+
+    <div class="hero__media reveal" style="grid-template-columns: 1fr;">
+      <div class="hero__image">
+        <div class="hero-ph"></div>
+        <div class="hero__tags">
+          <span class="tag accent">Web app ✦</span>
+          <span class="tag">Cloud infra</span>
+          <span class="tag">IT consulting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue"><span class="line"></span> Scroll to explore</div>
+  </div>
+</header>
+
+<!-- About -->
+<section class="about" id="who">
+  <div class="wrap">
+    <div class="about__grid">
+      <div class="reveal">
+        <span class="label">Who we are</span>
+        <h2>We foster business success by enabling organizations to harness the power of digital <em>technology.</em></h2>
+      </div>
+      <div class="reveal">
+        <p style="max-width:52ch; color:var(--ink-2); font-size:17px; line-height:1.55;">
+          IChannel Technologies is a full-cycle software and IT consulting company based in Ibadan, Nigeria. For over fifteen years we've helped founders, operators and public institutions start, run and grow their work online — from websites and mobile apps, to cloud infrastructure, to the internal tools that keep teams productive.
+        </p>
+        <p style="max-width:52ch; color:var(--muted); font-size:14.5px; margin-top:14px;">
+          Our consulting experience lets us shape personalized answers to real business challenges, not templated ones.
+        </p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat reveal"><div class="stat__num" data-count="15">0<sup>+</sup></div><div class="stat__label">Years in the market</div></div>
+      <div class="stat reveal"><div class="stat__num" data-count="60">0<sup>+</sup></div><div class="stat__label">Projects delivered across West Africa</div></div>
+      <div class="stat reveal"><div class="stat__num" data-count="98">0<sup>%</sup></div><div class="stat__label">Client retention after first engagement</div></div>
+      <div class="stat reveal"><div class="stat__num" data-count="24">0<sup>/7</sup></div><div class="stat__label">Ongoing support &amp; infrastructure monitoring</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="services__head reveal">
+      <div>
+        <span class="label">Our services</span>
+        <h2>Take the lead in <em>innovation.</em></h2>
+      </div>
+      <p style="max-width:42ch; color:var(--muted); margin:0;">A focused set of engagements for teams shipping software, migrating to cloud, or rebuilding how their organization runs.</p>
+    </div>
+
+    <div class="services__grid">
+      <article class="svc reveal">
+        <div>
+          <div class="svc__num">01 — Strategy</div>
+          <h3 class="svc__title">Strategic IT consulting</h3>
+        </div>
+        <p class="svc__desc">We study your business, your stack and your competition, then map the technology decisions that unlock the next chapter.</p>
+      </article>
+
+      <article class="svc reveal">
+        <div>
+          <div class="svc__num">02 — Build</div>
+          <h3 class="svc__title">Web &amp; mobile applications</h3>
+        </div>
+        <p class="svc__desc">Websites, dashboards, internal tools and customer-facing apps — designed for engagement and engineered to last.</p>
+      </article>
+
+      <article class="svc reveal">
+        <div>
+          <div class="svc__num">03 — Run</div>
+          <h3 class="svc__title">Cloud solutions &amp; hosting</h3>
+        </div>
+        <p class="svc__desc">Robust web hosting, compute and collaboration tools from first deployment through scaling with traffic.</p>
+      </article>
+
+      <article class="svc reveal">
+        <div>
+          <div class="svc__num">04 — Plan</div>
+          <h3 class="svc__title">Infrastructure capacity planning</h3>
+        </div>
+        <p class="svc__desc">Right-size your compute, network and storage. Monitor what matters. Avoid surprises when demand spikes.</p>
+      </article>
+
+      <article class="svc reveal">
+        <div>
+          <div class="svc__num">05 — Educate</div>
+          <h3 class="svc__title">Educational technology services</h3>
+        </div>
+        <p class="svc__desc">Learning platforms, CBT systems and school management tools built for African institutions and their realities.</p>
+      </article>
+
+      <article class="svc reveal">
+        <div>
+          <div class="svc__num">06 — Support</div>
+          <h3 class="svc__title">Help desk &amp; IT services</h3>
+        </div>
+        <p class="svc__desc">Ongoing support, monitoring and on-call response, so your team spends the day shipping, not debugging.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="process">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label">How we work</span>
+      <h2>Four steps from <em>idea</em> to something you can ship on Monday.</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step__num">01</div>
+        <div>
+          <h4 class="step__title">Discover</h4>
+          <p class="step__body">We sit down with stakeholders, audit what exists, and get aligned on goals, constraints and success metrics before anyone touches Figma.</p>
+        </div>
+        <div class="step__toggle">+</div>
+      </div>
+      <div class="step">
+        <div class="step__num">02</div>
+        <div>
+          <h4 class="step__title">Design</h4>
+          <p class="step__body">Information architecture, flows and interface design — iterated with your team in the open, not hidden behind a reveal.</p>
+        </div>
+        <div class="step__toggle">+</div>
+      </div>
+      <div class="step">
+        <div class="step__num">03</div>
+        <div>
+          <h4 class="step__title">Build</h4>
+          <p class="step__body">Engineering in weekly increments. You can see progress on a staging URL every Friday, not at the end.</p>
+        </div>
+        <div class="step__toggle">+</div>
+      </div>
+      <div class="step">
+        <div class="step__num">04</div>
+        <div>
+          <h4 class="step__title">Operate</h4>
+          <p class="step__body">Deployment, monitoring, and the long tail of small improvements that keep the system worth using.</p>
+        </div>
+        <div class="step__toggle">+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Editorial statement -->
+<section class="statement">
+  <div class="wrap">
+    <p class="reveal">
+      We build for ambitious
+      <em>teams</em>
+      with bold ideas
+      <span class="inline-img"><span class="hero-ph ph-sand" style="width:100%;height:100%;display:block;"></span></span>
+      and a real need to ship.
+    </p>
+  </div>
+</section>
+
+
+<!-- Testimonials -->
+<section class="tts">
+  <div class="wrap">
+    <div class="tts__head reveal">
+      <div>
+        <span class="label">Clients, in their words</span>
+        <h2>Trusted by operators across West Africa.</h2>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <button class="btn" id="ttPrev" aria-label="Previous">←</button>
+        <button class="btn btn--fill" id="ttNext" aria-label="Next">→</button>
+      </div>
+    </div>
+    <div class="tts__rail" id="ttRail">
+      <article class="tt">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Innovation, creativity and brilliance reflect IChannel's service. They go to great lengths to satisfy their clients with excellent work."</blockquote>
+        <div class="tt__who">
+          <div class="avatar">F</div>
+          <div><b>Frank Aroyewun</b><span>CEO — Emmaus &amp; Encamp</span></div>
+        </div>
+      </article>
+      <article class="tt">
+        <div class="stars">★★★★★</div>
+        <blockquote>"My experience with IChannel has been encouraging. Prompt support services, delivered as required."</blockquote>
+        <div class="tt__who">
+          <div class="avatar">A</div>
+          <div><b>Akinwale Aboluwade</b><span>CEO — OyoReporters</span></div>
+        </div>
+      </article>
+      <article class="tt">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Working with them has brought fulfilment to our publishing team. I recommend them to anyone who wants stress-free results."</blockquote>
+        <div class="tt__who">
+          <div class="avatar">O</div>
+          <div><b>Omotayo O. Babalola</b><span>CEO — Igbomina Today</span></div>
+        </div>
+      </article>
+      <article class="tt">
+        <div class="stars">★★★★★</div>
+        <blockquote>"A rare blend of technical depth and genuine partnership. They explain trade-offs before making them."</blockquote>
+        <div class="tt__who">
+          <div class="avatar">K</div>
+          <div><b>Kayode Adeniyi</b><span>Director of IT — Regional Polytechnic</span></div>
+        </div>
+      </article>
+      <article class="tt">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I have so far had a richly fulfilling experience with iChannel Tech. They don't just offer the services, they ensure that they stay with you all the way."</blockquote>
+        <div class="tt__who">
+          <div class="avatar">B</div>
+          <div><b>Bisi Oladele</b><span>MD — Newspeak & Associate</span></div>
+        </div>
+      </article>
+      <article class="tt">
+        <div class="stars">★★★★★</div>
+        <blockquote>"This outfit has helped improve our business dealings tremendously by helping us incorporate robust IT solutions to our workflow."</blockquote>
+        <div class="tt__who">
+          <div class="avatar">L</div>
+          <div><b>Lanre Balogun</b><span>COO — Lofeta Global Merchant Company</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Partners -->
+<section class="partners" id="partners">
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; align-items:end; margin-bottom:32px; gap:20px; flex-wrap:wrap;">
+      <div>
+        <span class="label">Partners &amp; clients</span>
+        <h2 style="font-family:'Instrument Serif'; font-weight:400; font-size:clamp(28px,3vw,44px); margin:12px 0 0; letter-spacing:-0.01em;">Companies we build alongside.</h2>
+      </div>
+    </div>
+    <div class="partners__grid">
+      <!-- Zoho -->
+      <div class="partner">
+        <svg viewBox="0 0 512 178" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="partner-logo" role="img" aria-label="Zoho">
+          <defs>
+            <linearGradient x1="49.99%" y1="1.43%" x2="49.99%" y2="96.98%" id="ic-zg1"><stop stop-color="#FFE513" offset="0.56%"/><stop stop-color="#FDB924" offset="100%"/></linearGradient>
+            <linearGradient x1="4.51%" y1="13.49%" x2="95.67%" y2="87.06%" id="ic-zg2"><stop stop-color="#008CD2" offset="0.56%"/><stop stop-color="#00649D" offset="100%"/></linearGradient>
+            <linearGradient x1="50%" y1="27.78%" x2="50%" y2="97.53%" id="ic-zg3"><stop stop-color="#26A146" offset="0%"/><stop stop-color="#008A52" offset="100%"/></linearGradient>
+            <linearGradient x1="43.73%" y1="8.21%" x2="57.54%" y2="93.2%" id="ic-zg4"><stop stop-color="#D92231" offset="0%"/><stop stop-color="#BA2234" offset="100%"/></linearGradient>
+          </defs>
+          <g transform="translate(384,37)"><path d="M128,.7L128,122.1L111.2,138.5L111.2,19.7L128,.7Z" fill="#E79225"/><path d="M17.9,.8L.5,19.7L1.4,20.9L110.5,20.5L111.5,19.7L128,.7L17.9,.8Z" fill="#FFF16D"/><rect fill="url(#ic-zg1)" x=".5" y="19.7" width="111" height="118.9"/><path d="M94.6,62.5C92.4,57,89.1,52,84.8,47.7C80.7,43.5,76.1,40.3,70.9,38.2C65.8,36.1,60.3,35,54.3,35C48.3,35,42.7,36.1,37.6,38.2C32.4,40.3,27.8,43.5,23.7,47.7C19.4,52,16.2,57,14,62.5C11.8,68,10.8,74,10.8,80.6C10.8,87,11.9,93,14.1,98.6C16.3,104.2,19.5,109.2,23.8,113.6C27.8,117.7,32.4,120.8,37.5,122.9C42.6,125,48.3,126.1,54.4,126.1C60.3,126.1,65.8,125,70.9,122.9C76,120.8,80.7,117.7,84.8,113.6C89.1,109.2,92.4,104.2,94.6,98.7C96.8,93.2,97.9,87.1,97.9,80.7C97.9,74,96.8,68,94.6,62.5ZM71.7,101.7C67.4,106.8,61.7,109.4,54.3,109.4C46.9,109.4,41.1,106.8,36.8,101.7C32.5,96.6,30.4,89.5,30.4,80.5C30.4,71.3,32.6,64.2,36.8,59C41.1,53.8,46.8,51.3,54.3,51.3C61.7,51.3,67.4,53.9,71.7,59C75.9,64.2,78.1,71.3,78.1,80.5C78.1,89.5,76,96.6,71.7,101.7Z" fill="#FFFFFF"/></g>
+          <g transform="translate(257,27)"><path d="M116.6,.8L116.6,1.4L130.8,110.5L122.5,133.5L121.4,132.7L106.8,28.1L107.1,26.7L116.2,1.4L116.6,.8Z" fill="#009ADA"/><path d="M7.3,16L116.6,.8L107.4,27L106.1,28.4L3.9,43.4L4.4,24.7L7.3,16Z" fill="#91C9ED"/><path d="M107.4,27L122.5,133.5L14.8,148.6L.3,45.7L6.6,40.8L107.4,27Z" fill="url(#ic-zg2)"/><path d="M89.1,47.4C88.6,44.1,87.5,41.6,85.7,39.9C84.2,38.6,82.4,37.9,80.3,37.9C79.8,37.9,79.2,37.9,78.6,38C75.8,38.4,73.7,39.7,72.4,41.8C71.4,43.3,71,45.2,71,47.4C71,48.2,71.1,49.1,71.2,50L75.1,77.7L44.1,82.3L40.2,54.6C39.7,51.4,38.6,48.9,36.8,47.2C35.3,45.8,33.5,45.1,31.5,45.1C31,45.1,30.5,45.1,30,45.2C27.1,45.6,24.9,46.9,23.5,49C22.5,50.5,22.1,52.4,22.1,54.6C22.1,55.4,22.2,56.3,22.3,57.3L32.9,129.4C33.4,132.7,34.5,135.2,36.5,136.9C38,138.2,39.8,138.8,42,138.8C42.6,138.8,43.2,138.8,43.8,138.7C46.5,138.3,48.5,137,49.8,134.9C50.7,133.4,51.1,131.6,51.1,129.5C51.1,128.7,51,127.8,50.9,126.9L46.6,98.4L77.6,93.8L81.9,122.3C82.4,125.6,83.5,128.1,85.4,129.7C86.9,131,88.7,131.7,90.8,131.7C91.3,131.7,91.9,131.7,92.5,131.6C95.3,131.2,97.4,129.9,98.7,127.8C99.6,126.3,100.1,124.5,100.1,122.3C100.1,121.5,100,120.6,99.9,119.7L89.1,47.4Z" fill="#FFFFFF"/></g>
+          <g transform="translate(123,0)"><path d="M39,0L.1,92.4L5.4,133L5.7,132.9L49.4,34.6L49.2,32.5L39.8,1.3L39,0Z" fill="#66BF6B"/><path d="M39,0L49.1,33.9L49.3,34.6L145.5,77.7L145.8,77.5L137.6,45.1L39,0Z" fill="#98D0A0"/><path d="M49.1,33.9L145.8,77.5L102.1,176.6L5.4,133L49.1,33.9Z" fill="url(#ic-zg3)"/><path d="M116.5,85.5C114.4,79.9,111.5,75.1,107.7,71.1C103.9,67.1,99.3,63.9,93.9,61.6C88.5,59.3,83.1,58.2,77.6,58.2L77.3,58.2C71.7,58.2,66.2,59.5,60.8,61.9C55.1,64.4,50.2,67.8,46,72.3C41.8,76.7,38.4,82.1,35.8,88.3C33.2,94.4,31.8,100.6,31.5,106.7L31.5,108.8C31.5,114.2,32.4,119.5,34.3,124.7C36.3,130.2,39.2,134.9,43,138.9C46.8,142.9,51.5,146.1,57.1,148.4C62.4,150.7,67.8,151.8,73.3,151.8L73.4,151.8C78.9,151.8,84.4,150.6,89.8,148.3C95.5,145.8,100.5,142.3,104.7,137.8C108.9,133.4,112.4,128.1,115,121.9C117.6,115.7,119,109.6,119.3,103.5L119.3,101.7C119.4,96.2,118.5,90.8,116.5,85.5ZM97.2,114.3C93.6,122.9,88.7,128.8,82.8,132C79.6,133.7,76.3,134.6,73,134.6C70.1,134.6,67,133.9,63.9,132.6C57.1,129.7,52.9,125.1,51.1,118.5C50.5,116.3,50.2,114,50.2,111.6C50.2,106.8,51.4,101.5,53.8,95.8C57.5,87,62.4,81,68.3,77.7C71.5,75.9,74.8,75.1,78.1,75.1C81.1,75.1,84.1,75.8,87.3,77.1C94,80,98.2,84.6,100,91.2C100.6,93.3,100.9,95.6,100.9,98C100.9,103,99.7,108.4,97.2,114.3Z" fill="#FFFFFF"/></g>
+          <g transform="translate(0,15)"><path d="M115.4,.7L131.2,106.5L124,143.7L123,142.4L107.6,40.2L107.6,38.2L114.4,2.5L115.4,.7Z" fill="#760D16"/><path d="M0,55.4L7.5,18L115.4,.7L108.1,38.8L108.1,41.3L1.3,56.4L0,55.4Z" fill="#EF463E"/><path d="M108.1,38.8L124,143.7L17.2,160.4L0,55.4L108.1,38.8Z" fill="url(#ic-zg4)"/><path d="M96.6,127C95.8,126,94.6,125.3,93.2,124.8C91.8,124.3,90.1,124.1,88,124.1C86.1,124.1,83.9,124.3,81.5,124.7L53.3,129.5C53.6,127.3,54.7,124.5,56.6,121C58.7,117.1,61.9,112.4,66,107C67.4,105.1,68.5,103.7,69.3,102.7C69.8,102,70.6,101.1,71.6,99.8C78.1,91.3,82,84.4,83.6,79C84.5,75.9,85,72.8,85.2,69.7C85.3,68.8,85.3,68,85.3,67.2C85.3,65,85.1,62.8,84.7,60.6C84.4,58.6,83.9,57,83.2,55.7C82.5,54.4,81.7,53.4,80.7,52.8C79.6,52.1,77.9,51.8,75.8,51.8C74.1,51.8,72,52,69.5,52.4L36.9,58C33,58.7,30,59.8,28.2,61.6C26.7,63,26,64.8,26,66.8C26,67.3,26,67.9,26.1,68.5C26.6,71.3,28,73.3,30.3,74.3C31.7,74.9,33.3,75.2,35.3,75.2C36.6,75.2,38.1,75.1,39.7,74.8L66.9,70C66.9,70.5,67,71,67,71.4C67,73.1,66.7,74.8,66.1,76.4C65.3,78.7,63.3,81.9,60,86C59.1,87.1,57.7,88.9,55.8,91.2C48.4,100.1,43.2,107.7,40,114C37.7,118.4,36.2,122.6,35.3,126.9C34.8,129.4,34.5,131.7,34.5,134C34.5,135.6,34.6,137.2,34.9,138.7C35.3,140.9,35.8,142.7,36.5,144.1C37.2,145.5,38.2,146.6,39.3,147.2C40.4,147.8,41.9,148,44.1,148C46.8,148,50.5,147.6,55.2,146.8L84.8,141.7C90,140.8,93.7,139.5,95.8,137.8C97.5,136.4,98.4,134.5,98.4,132.3C98.4,131.7,98.3,131.1,98.2,130.5C98,129.2,97.5,128,96.6,127Z" fill="#FFFFFF"/></g>
+        </svg>
+      </div>
+      <!-- AWS -->
+      <div class="partner">
+        <svg viewBox="0 -30 150 120" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img" aria-label="Amazon Web Services">
+          <path d="M122.714 62.703c5.28-.643 16.924-2.027 18.997.643 2.072 2.621-2.319 13.649-4.293 18.544-.592 1.484.691 2.077 2.023.94 8.684-7.319 10.954-22.6 9.178-24.825-1.777-2.175-17.023-4.055-26.3 2.473-1.431 1.038-1.184 2.423.395 2.225z" fill="#F90"/>
+          <path d="M74.852 89.456c20.28 0 43.865-6.38 60.099-18.396 2.664-1.978.345-4.994-2.369-3.758-18.207 7.714-37.993 11.473-56.003 11.473-26.694 0-52.5-7.368-73.42-19.533-1.827-1.088-3.208.791-1.679 2.176 19.343 17.505 44.951 28.038 73.372 28.038z" fill="#F90"/>
+          <path d="M42.632 32.835c0 1.83.197 3.313.542 4.401a26.505 26.505 0 001.58 3.56c.246.396.345.792.345 1.138 0 .495-.296.99-.938 1.484l-3.108 2.077c-.444.296-.889.445-1.283.445-.494 0-.987-.248-1.48-.693a15.29 15.29 0 01-1.777-2.324 38.28 38.28 0 01-1.53-2.918c-3.848 4.55-8.684 6.825-14.506 6.825-4.145 0-7.45-1.187-9.868-3.56-2.418-2.374-3.652-5.54-3.652-9.495 0-4.204 1.48-7.616 4.49-10.187 3.01-2.572 7.007-3.857 12.09-3.857 1.677 0 3.404.148 5.23.395 1.825.248 3.7.643 5.674 1.088v-3.61c0-3.758-.79-6.379-2.32-7.912-1.578-1.533-4.243-2.274-8.042-2.274-1.727 0-3.503.197-5.329.642a39.247 39.247 0 00-5.329 1.682 14.14 14.14 0 01-1.727.643c-.345.098-.592.148-.79.148-.69 0-1.036-.494-1.036-1.533V6.577c0-.791.1-1.385.346-1.73.246-.347.69-.693 1.381-1.04 1.727-.89 3.8-1.631 6.217-2.225C20.23.94 22.797.642 25.51.642c5.872 0 10.164 1.336 12.927 4.006 2.714 2.67 4.096 6.726 4.096 12.165v16.022h.099zm-20.033 7.517c1.628 0 3.306-.297 5.082-.89 1.776-.594 3.355-1.682 4.687-3.165.79-.94 1.382-1.978 1.678-3.165.296-1.187.493-2.621.493-4.302v-2.077a41.135 41.135 0 00-4.539-.84 37.099 37.099 0 00-4.638-.298c-3.306 0-5.724.643-7.352 1.978-1.628 1.336-2.418 3.215-2.418 5.687 0 2.324.592 4.055 1.826 5.242 1.184 1.236 2.911 1.83 5.18 1.83zm39.621 5.34c-.888 0-1.48-.148-1.875-.494-.394-.297-.74-.99-1.036-1.929L47.714 5.044c-.296-.99-.444-1.632-.444-1.978 0-.791.394-1.236 1.184-1.236h4.835c.938 0 1.58.148 1.925.494.395.297.69.99.987 1.929l8.29 32.736 7.697-32.736c.246-.99.542-1.632.937-1.929.395-.297 1.085-.494 1.974-.494h3.947c.938 0 1.579.148 1.974.494.395.297.74.99.937 1.929l7.796 33.132L98.29 4.253c.295-.99.64-1.632.986-1.929.395-.297 1.036-.494 1.925-.494h4.588c.79 0 1.234.395 1.234 1.236 0 .247-.049.494-.099.791a7.041 7.041 0 01-.345 1.236L94.688 43.32c-.297.989-.642 1.631-1.037 1.928-.394.297-1.036.495-1.875.495h-4.243c-.938 0-1.58-.149-1.974-.495-.394-.346-.74-.989-.937-1.978l-7.648-31.895-7.599 31.846c-.247.989-.543 1.632-.938 1.978-.394.346-1.085.494-1.973.494H62.22zm63.405 1.336c-2.566 0-5.132-.297-7.599-.89-2.467-.594-4.391-1.237-5.674-1.979-.79-.445-1.332-.94-1.53-1.384a3.503 3.503 0 01-.296-1.385v-2.522c0-1.038.395-1.533 1.135-1.533.296 0 .592.05.888.148.296.1.74.297 1.234.495a26.791 26.791 0 005.428 1.73c1.973.396 3.898.594 5.871.594 3.109 0 5.527-.544 7.204-1.632 1.678-1.088 2.566-2.67 2.566-4.698 0-1.384-.444-2.521-1.332-3.461-.888-.94-2.566-1.78-4.984-2.571l-7.154-2.226c-3.602-1.137-6.267-2.818-7.895-5.044-1.628-2.176-2.467-4.599-2.467-7.17 0-2.077.444-3.907 1.332-5.489.888-1.582 2.072-2.967 3.553-4.055 1.48-1.137 3.157-1.978 5.131-2.571 1.974-.594 4.046-.841 6.217-.841 1.086 0 2.221.05 3.306.198 1.135.148 2.171.346 3.207.544.987.247 1.925.494 2.813.79.888.298 1.579.594 2.072.891.691.396 1.185.791 1.481 1.236.296.396.444.94.444 1.632V8.16c0 1.039-.395 1.583-1.135 1.583-.395 0-1.036-.198-1.875-.594-2.813-1.285-5.971-1.928-9.474-1.928-2.812 0-5.033.445-6.562 1.384-1.53.94-2.319 2.374-2.319 4.402 0 1.384.493 2.57 1.48 3.51s2.812 1.88 5.427 2.72l7.007 2.226c3.553 1.137 6.118 2.72 7.648 4.747 1.53 2.027 2.27 4.351 2.27 6.923 0 2.126-.444 4.055-1.283 5.736-.888 1.681-2.072 3.165-3.602 4.352-1.53 1.236-3.355 2.126-5.477 2.769-2.22.692-4.54 1.039-7.056 1.039z" fill="#252F3E"/>
+        </svg>
+      </div>
+      <!-- Cloudflare -->
+      <div class="partner">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img" aria-label="Cloudflare">
+          <path d="M25.079 15.102c-0.015-0-0.032-0.001-0.049-0.001-0.087 0-0.174 0.005-0.258 0.016l0.010-0.001c-0.074 0.004-0.136 0.054-0.158 0.121l-0 0.001-0.422 1.468c-0.068 0.187-0.108 0.402-0.108 0.627 0 0.378 0.112 0.731 0.305 1.026l-0.004-0.007c0.309 0.397 0.786 0.649 1.323 0.649 0.002 0 0.004 0 0.005 0h-0l2.304 0.142c0.001-0 0.003-0 0.004-0 0.067 0 0.127 0.035 0.161 0.087l0 0.001c0.022 0.037 0.035 0.082 0.035 0.129 0 0.023-0.003 0.046-0.009 0.068l0-0.002c-0.040 0.107-0.138 0.184-0.254 0.194l-0.001 0-2.401 0.14c-1.447 0.159-2.644 1.089-3.18 2.366l-0.010 0.026-0.176 0.448c-0.006 0.015-0.010 0.032-0.010 0.050 0 0.070 0.057 0.127 0.127 0.127 0.002 0 0.004-0 0.006-0h8.244c0.001 0 0.002 0 0.002 0 0.099 0 0.182-0.066 0.208-0.156l0-0.002c0.138-0.479 0.218-1.030 0.22-1.599v-0.001c-0.009-3.262-2.653-5.903-5.916-5.907h-0zM21.634 22.054c0.068-0.186 0.107-0.401 0.107-0.625 0-0.379-0.112-0.731-0.306-1.026l0.004 0.007c-0.308-0.397-0.785-0.65-1.322-0.65-0.002 0-0.003 0-0.005 0h0l-10.821-0.14c-0.001 0-0.002 0-0.003 0-0.068 0-0.128-0.035-0.163-0.088l-0-0.001c-0.022-0.036-0.036-0.080-0.036-0.127 0-0.024 0.003-0.047 0.010-0.069l-0 0.002c0.040-0.107 0.137-0.184 0.253-0.195l0.001-0 10.917-0.14c1.447-0.16 2.643-1.090 3.182-2.366l0.010-0.026 0.624-1.626c0.017-0.039 0.027-0.085 0.027-0.133 0-0.027-0.003-0.054-0.009-0.079l0 0.002c-0.735-3.203-3.561-5.555-6.936-5.555-3.109 0-5.751 1.996-6.717 4.776l-0.015 0.050c-0.528-0.399-1.195-0.64-1.919-0.64-1.651 0-3.010 1.252-3.179 2.859l-0.001 0.014c-0.010 0.097-0.016 0.21-0.016 0.324 0 0.281 0.035 0.555 0.1 0.816l-0.005-0.023c-2.452 0.071-4.413 2.076-4.413 4.539 0 0.002 0 0.004 0 0.006v-0c0.002 0.234 0.018 0.463 0.047 0.687l-0.003-0.028c0.017 0.104 0.104 0.182 0.211 0.184h19.971c0.12-0.003 0.22-0.083 0.253-0.192l0-0.002 0.15-0.533z" fill="currentColor"/>
+        </svg>
+      </div>
+      <!-- DigitalOcean -->
+      <div class="partner">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img" aria-label="DigitalOcean">
+          <path d="M5.787 25.2v-3.721h-3.72v3.721zM10.239 25.2h-4.451v4.454h4.451zM16.050 1.004c-0.009-0-0.020-0-0.030-0-8.281 0-14.996 6.706-15.009 14.984v0.001h5.796c0.022-5.082 4.147-9.193 9.232-9.193 1.203 0 2.353 0.23 3.407 0.649l-0.062-0.022c2.414 0.898 4.284 2.769 5.163 5.123l0.020 0.060c0.399 0.994 0.631 2.146 0.631 3.352 0 5.078-4.104 9.198-9.176 9.224h-0.003v-5.761h-5.777v5.777h5.761v5.796c8.293-0.019 15.008-6.746 15.008-15.042 0-1.695-0.28-3.325-0.797-4.846l0.031 0.106c-1.459-4.518-4.948-8.007-9.363-9.437l-0.103-0.029c-1.412-0.462-3.037-0.734-4.724-0.744l-0.005-0z" fill="currentColor"/>
+        </svg>
+      </div>
+      <!-- Flutterwave -->
+      <div class="partner">
+        <svg viewBox="0 0 1013.12 241.26" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img" aria-label="Flutterwave">
+          <rect fill="#2a3362" x="328.78" y="82.1" width="16.11" height="82.89"/>
+          <path fill="#2a3362" d="M407.24,135.58c0,11.44-7.36,16.58-17.16,16.58s-16.35-5.14-16.35-16V106.62H357.62V139.9c0,16.57,10.39,26.26,27.67,26.26,10.86,0,16.93-4,21-8.52h.94l1.4,7.36h14.82V106.62H407.24Z"/>
+          <path fill="#2a3362" d="M565.27,153.44c-11.79,0-18.44-5.37-19.49-13.19h51.13a33.78,33.78,0,0,0,.35-4.91c-.11-21-16-29.89-33-29.89-19.73,0-34.56,11.8-34.56,30.83,0,18.09,14.25,29.88,35.61,29.88,17.87,0,29.77-7.93,32.23-20.08H581.62C579.63,150.87,573.91,153.44,565.27,153.44Zm-1-35.26c10.28,0,16.23,4.55,17.17,11H546.13C547.64,123,553.6,118.18,564.22,118.18Z"/>
+          <path fill="#2a3362" d="M624.63,115h-1l-1.52-8.41H607.47V165h16.11V139.9c0-11.33,6.53-17.63,18.68-17.63a32.5,32.5,0,0,1,6.58.58V106.62h-2.25C635.85,106.62,629.18,108.84,624.63,115Z"/>
+          <polygon fill="#2a3362" points="727.94 146.78 727.01 146.78 713.23 110.24 696.65 110.24 683.11 146.67 682.06 146.67 669.22 106.62 653.22 106.62 672.95 165 690.47 165 704.48 127.75 705.41 127.75 719.19 165 736.82 165 756.55 106.62 740.55 106.62 727.94 146.78"/>
+          <path fill="#2a3362" d="M820.67,148V128.46c0-15.88-13.43-23-30.13-23-17.74,0-28.83,8.41-30.35,21H776.3c1.17-5.49,5.84-8.52,14.24-8.52s14,3.15,14,9.57V129l-26.27,2c-12.14.94-21,6.31-21,17.75,0,11.79,10.16,17.39,25.1,17.39,12.06,0,19.41-3.36,23.91-8.43h.8c2.53,5.7,7.66,7.27,13.24,7.27h6.77V153.09h-1.52C822.18,153.09,820.67,151.46,820.67,148Zm-16.12-6.19c0,9.23-11,12.26-20.43,12.26-6.42,0-10.62-1.63-10.62-6.07,0-4,3.62-5.95,9-6.42l22.06-1.63Z"/>
+          <polygon fill="#2a3362" points="880.23 106.62 861.43 148.89 860.38 148.89 841.35 106.62 823.95 106.62 851.15 165 870.42 165 897.5 106.62 880.23 106.62"/>
+          <path fill="#2a3362" d="M949,146.08c-2,4.79-7.71,7.36-16.35,7.36-11.79,0-18.44-5.37-19.49-13.19h51.13a33.78,33.78,0,0,0,.35-4.91c-.11-21-16-29.89-33-29.89-19.73,0-34.55,11.8-34.55,30.83,0,18.09,14.24,29.88,35.6,29.88,17.87,0,29.77-7.93,32.23-20.08Zm-17.4-27.9c10.28,0,16.23,4.55,17.17,11H913.47C915,123,920.94,118.18,931.56,118.18Z"/>
+          <path fill="#2a3362" d="M302.6,102.32c0-5.14,3.62-7.35,8.29-7.35a24.17,24.17,0,0,1,6.42.93L320,84.22a36.71,36.71,0,0,0-12.14-2.1c-11.91,0-21.48,6.31-21.48,19.38v5.12h-13.9v12.79h13.9V165H302.6v-45.6h18.16V106.62H302.6Z"/>
+          <path fill="#2a3362" d="M459,90.16H444l-.84,16.46H430.48v12.79h12.38v28.78c0,9.8,5,18,20,18a52.84,52.84,0,0,0,11.56-1.28V152.62a34.29,34.29,0,0,1-6.66.82c-8.05,0-8.75-4.55-8.75-8.06v-26h16V106.62H459Z"/>
+          <path fill="#2a3362" d="M509.59,90.16H494.64l-.84,16.46H481.09v12.79h12.38v28.78c0,9.8,5,18,20,18A52.84,52.84,0,0,0,525,164.88V152.62a34.29,34.29,0,0,1-6.66.82c-8.05,0-8.75-4.55-8.75-8.06v-26h16.05V106.62H509.59Z"/>
+          <path fill="#009a46" d="M48.23,79.89c0-9.37,2.74-17.37,8.49-23.12l10,10C55.59,77.86,65.31,112.34,97,144.06s66.19,41.43,77.31,30.32l10,10c-18.76,18.76-61.49,5.45-97.26-30.33C62.24,129.23,48.23,101.07,48.23,79.89Z"/>
+          <path fill="#ff5805" d="M111.29,193c-9.37,0-17.37-2.74-23.13-8.49l10-10c11.11,11.11,45.59,1.39,77.31-30.32S216.89,78,205.78,66.89l10-10c18.77,18.76,5.45,61.49-30.33,97.26C160.63,179,132.47,193,111.29,193Z"/>
+          <path fill="#f5afcb" d="M188.76,139.84c-6.07-17.48-18.47-36.16-34.92-52.6-35.77-35.78-78.5-49.1-97.26-30.33h0c-1.33,1.34-.18,4.65,2.58,7.41s6.07,3.9,7.4,2.57c11.12-11.11,45.6-1.39,77.31,30.33,15,15,26.18,31.75,31.57,47.25,4.72,13.59,4.26,24.55-1.24,30.05h0c-1.34,1.33-.18,4.65,2.57,7.4s6.07,3.91,7.41,2.57C193.79,174.88,195.42,159,188.76,139.84Z"/>
+          <path fill="#ff9b00" d="M215.76,56.91c-9.63-9.63-25.49-11.26-44.67-4.59-17.47,6.06-36.16,18.47-52.6,34.91C82.72,123,69.4,165.73,88.16,184.5h0c1.34,1.33,4.65.18,7.41-2.57s3.91-6.07,2.57-7.41C87,163.41,96.75,128.93,128.47,97.21c15-15,31.75-26.18,47.25-31.57,13.59-4.71,24.55-4.26,30.06,1.24h0c1.33,1.33,4.65.18,7.4-2.58S217.09,58.24,215.76,56.91Z"/>
+        </svg>
+      </div>
+      <!-- Quidax -->
+      <div class="partner">
+        <svg viewBox="0 0 3749 900" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img" aria-label="Quidax">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M450.095 900C698.676 900 900.19 698.528 900.19 450C900.19 201.472 698.676 0 450.095 0C201.515 0 0 201.472 0 450C0 698.528 201.515 900 450.095 900ZM612.532 685.498C566.323 717.571 510.22 736.364 449.732 736.364C291.745 736.364 163.672 608.155 163.672 450.001C163.672 291.847 291.745 163.638 449.732 163.638C607.719 163.638 735.793 291.847 735.793 450.001C735.793 485.306 729.411 519.119 717.738 550.346C672.464 533.915 622.002 529.003 575.797 540.098C594.191 514.435 605.02 482.972 605.02 448.976C605.02 362.556 535.037 292.499 448.709 292.499C362.38 292.499 292.397 362.556 292.397 448.976C292.397 535.396 362.38 605.453 448.709 605.453C468.608 605.453 487.639 601.731 505.144 594.944C548.944 620.356 586.707 656.827 612.532 685.498ZM761.475 646.663C741.068 678.892 715.794 707.734 686.685 732.157C654.802 690.095 590.347 626.579 519.203 586.023C584.94 536.754 686.772 568.26 761.475 646.663Z" fill="#3E2284"/>
+          <g opacity="0.15"><path d="M863.082 270.786C793.886 111.616 635.33 0.254 450.728 0C263.983 0.257 103.892 114.217 36.001 276.349C76.868 315.142 123.224 348.207 173.785 374.258C206.96 252.859 317.938 163.637 449.733 163.637C580.509 163.637 690.789 251.486 724.897 371.449C775.754 344.585 822.26 310.586 863.082 270.786Z" fill="white"/><path d="M602.285 419.672C588.581 347.258 525.033 292.498 448.71 292.498C372.02 292.498 308.229 347.785 294.941 420.716C343.382 433.415 394.226 440.177 446.65 440.177C500.492 440.177 552.668 433.044 602.285 419.672Z" fill="white"/></g>
+          <path d="M1347.15 218.023C1283.49 218.023 1231.16 239.826 1190.17 282.558C1150.06 325.291 1130 381.977 1130 452.616C1130 523.256 1150.06 579.942 1190.17 622.674C1231.16 665.407 1283.49 687.209 1347.15 687.209C1403.84 687.209 1445.7 671.512 1474.48 639.244V900H1600.93V226.744H1481.45V273.837C1453.55 236.337 1409.07 218.023 1347.15 218.023ZM1368.08 327.035C1431.74 327.035 1474.48 371.512 1474.48 442.151V463.081C1474.48 533.721 1431.74 578.198 1368.08 578.198C1302.67 578.198 1259.07 531.977 1259.07 452.616C1259.07 373.256 1302.67 327.035 1368.08 327.035Z" fill="#3E2284"/>
+          <path d="M2081.78 226.744H1954.45V481.395C1954.45 533.721 1925.68 568.605 1877.71 568.605C1829.75 568.605 1805.33 539.826 1805.33 483.14V226.744H1678V510.174C1678 620.93 1740.79 687.209 1844.57 687.209C1899.51 687.209 1938.76 668.895 1961.43 632.267V677.616H2081.78V226.744Z" fill="#3E2284"/>
+          <path d="M2225.42 2.616C2161.76 -0.872 2122.52 89.826 2171.35 133.43C2200.13 162.209 2250.71 162.209 2279.49 133.43C2294.32 118.605 2302.17 100.291 2302.17 79.36C2302.17 36.628 2268.16 2.616 2225.42 2.616ZM2289.09 226.744H2161.76V677.616H2289.09V226.744Z" fill="#3E2284"/>
+          <path d="M2816.85 0H2690.39V265.988C2662.48 233.721 2619.75 218.023 2563.07 218.023C2499.4 218.023 2447.08 239.826 2406.09 282.558C2365.97 325.291 2345.91 381.977 2345.91 452.616C2345.91 523.256 2365.97 579.942 2406.09 622.674C2447.08 665.407 2499.4 687.209 2563.07 687.209C2623.24 687.209 2672.08 663.663 2697.37 631.395V677.616H2816.85V0ZM2584 327.035C2647.66 327.035 2690.39 371.512 2690.39 442.151V462.209C2690.39 534.593 2647.66 577.326 2584 577.326C2518.59 577.326 2474.98 531.977 2474.98 452.616C2474.98 373.256 2518.59 327.035 2584 327.035Z" fill="#3E2284"/>
+          <path d="M3074.44 218.023C3019.5 218.023 2974.15 234.593 2938.39 267.733C2903.51 300 2886.07 337.5 2886.07 379.36L3013.39 384.593C3013.39 352.326 3035.2 325.291 3076.18 325.291C3115.43 325.291 3134.61 348.837 3134.61 395.058V412.5L3054.38 416.86C2934.03 422.093 2873.86 467.442 2873.86 553.779C2873.86 640.116 2930.54 687.209 3023.86 687.209C3070.95 687.209 3109.32 671.512 3138.97 640.988V677.616H3261.94V399.419C3261.94 280.814 3196.53 218.023 3074.44 218.023ZM3134.61 515.407C3134.61 561.628 3101.47 588.663 3053.51 588.663C3018.63 588.663 3001.18 574.709 3001.18 547.674C3001.18 518.023 3022.99 502.326 3066.59 500.581L3134.61 496.221V515.407Z" fill="#3E2284"/>
+          <path d="M3744.89 226.744H3600.13L3516.41 364.535L3432.69 226.744H3287.92L3426.58 450L3286.17 677.616H3430.94L3516.41 537.209L3602.74 677.616H3748.38L3605.36 450L3744.89 226.744Z" fill="#3E2284"/>
+        </svg>
+      </div>
+      <!-- TeamApt -->
+      <div class="partner">
+        <svg viewBox="0 410 1000 215" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img" aria-label="TeamApt">
+          <path d="M307.87,437.94H279.16v13.51c0,9.71-5.27,17.1-16.25,17.1h-5.28v28.07h18.58v45c0,20.9,13.3,33.77,35,33.77,10.13,0,15.41-2.32,16.67-3V545.8a39,39,0,0,1-8.44,1.06c-7,0-11.61-2.32-11.61-11V496.62h20.48V468.55H307.87Z" style="fill:#4f5c66"/>
+          <path d="M365.68,508.44c.63-7.81,7.39-17.73,20.9-17.73,15.19,0,20.68,9.71,21.1,17.73ZM410,535.67c-3,8.23-9.5,13.72-21.11,13.72-12.46,0-23.22-8.44-23.85-20.26h73a67.4,67.4,0,0,0,.63-9.92c0-33.78-20-53.83-52.56-53.83-27.23,0-52.35,21.53-52.35,55.3,0,35.25,25.76,55.94,54.68,55.94,26.59,0,43.27-15.2,48.33-33.35Z" style="fill:#4f5c66"/>
+          <path d="M444.54,544.54c0,16.67,13.3,31.87,36.31,31.87,13.93,0,24.06-5.91,29.55-14.78,0,7.18-.21,11,0,11.82h28.7c-.21-1.05,0-8,0-16.25V505.91c0-21.53-12.45-40.53-46.43-40.53-30.82,0-44.75,19.84-46,34.83l27.86,5.7c.64-7.81,6.76-15.41,17.95-15.41,10.13,0,15.4,5.28,15.4,11.4,0,3.59-1.9,6.33-7.59,7.17l-24.7,3.8C458.26,515.41,444.54,526,444.54,544.54Zm44.12,8.65c-8.87,0-12.46-5.28-12.46-10.76,0-7.39,5.07-10.56,11.82-11.61l19.84-3.17v4.64C507.86,548.55,498.15,553.19,488.66,553.19Z" style="fill:#4f5c66"/>
+          <path d="M584,573.45V513.08c0-9.49,6.12-18.15,17.31-18.15,11.61,0,16.88,7.81,16.88,17.73v60.79H649.9V512.87c0-9.28,6.12-17.94,17.52-17.94s16.67,7.81,16.67,17.73v60.79h31v-68c0-28.5-19-40.11-38.84-40.11-14.14,0-24.27,4.64-32.51,16.46-5.27-10.34-16-16.46-31-16.46-11.4,0-24.91,5.91-30.19,15.2v-12H552v104.9Z" style="fill:#4f5c66"/>
+          <path d="M728.83,546.23c0,16,13.3,30.39,34,30.39,18.15,0,28.28-9.71,32.71-16.89,0,7.39-.42,11.19,0,13.72h19.21c-.42-2.53,0-7.81,0-16.67V505.91c0-19.84-11.82-37.15-42.21-37.15-22,0-39.48,13.51-41.59,32.93l19,4.43c1.27-11.82,9.08-20.48,23-20.48,15.41,0,21.95,8.24,21.95,18.16,0,3.59-1.69,6.75-7.81,7.6l-27.44,4C742.13,517.94,728.83,528.07,728.83,546.23ZM765.56,560c-10.13,0-16.47-7.18-16.47-14.78,0-9.08,6.34-13.93,14.78-15.2l31-4.64V530C794.9,552.14,781.81,560,765.56,560Z" style="fill:#4f5c66"/>
+          <path d="M845.43,613.56V559.73c5.49,9.08,17.31,16.47,32.93,16.47,29.76,0,47.28-23.43,47.28-53.62,0-29.55-16.25-53-46.65-53-16.46,0-28.49,8-34,18.15V471.92H825.8V613.56Zm60-91c0,20.9-11.61,35.89-30,35.89-18.15,0-30.18-15-30.18-35.89,0-20.26,12-35.46,30.18-35.46C894,487.12,905.38,502.32,905.38,522.58Z" style="fill:#4f5c66"/>
+          <path d="M968.05,439.84H949.89V456.3c0,8.87-4.64,15.62-15.62,15.62h-5.48v17.95h19.42v55.72c0,18.37,11,28.92,28.28,28.92a43.51,43.51,0,0,0,13.51-1.9V555.72a39.56,39.56,0,0,1-7.81.85c-10.34,0-14.14-4.65-14.14-13.93V489.87h22V471.92h-22Z" style="fill:#4f5c66"/>
+          <path d="M88.92,559.35l4.71,7.59A36.33,36.33,0,0,0,67,563.08l-18.16,4.29c-31,7.45-52.18-30.94-29.16-53.29L71,463.93a75.4,75.4,0,0,0,4.15,73.5Z" style="fill:#0371ac"/>
+          <path d="M198.43,549.75l-.29,28.8a36.42,36.42,0,0,1-67.48,19.05L101.5,551,87.06,528.26a70.24,70.24,0,0,1-10.44-45,67.42,67.42,0,0,1,5.29-19.63,37.24,37.24,0,0,0,1.29,7.88A42.08,42.08,0,0,0,112.65,502L174.41,520A33.93,33.93,0,0,1,198.43,549.75Z" style="fill:#29abe2"/>
+          <path d="M198.86,417.93v7.17L198,519.8a.14.14,0,0,0-.14-.14,40.41,40.41,0,0,0-21-14.33l-59.48-17.19a32.1,32.1,0,0,1-22.3-23.21,31.67,31.67,0,0,1,5-26.79,36.44,36.44,0,0,1,3.71-4.3l40.32-39.4a32.24,32.24,0,0,1,54.76,23.49Z" style="fill:#fbb416"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <div class="cta__inner reveal">
+      <h2>Tell us what you're <em>building.</em> We'll tell you how we'd ship it.</h2>
+      <div class="cta__side">
+        <p>A 30-minute call, no slide deck required. Bring a rough idea or a finished RFP — either works.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn--fill" href="mailto:hello@ichanneltech.com">
+            Schedule a call
+            <span class="btn__arrow"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8 L8 2 M4 2 H8 V6"/></svg></span>
+          </a>
+          <a class="btn" href="mailto:hello@ichanneltech.com">Contact Us</a>
+        </div>
+      </div>
+      <div class="cta__orb"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <div class="brand">
+          <span class="brand__name">IChannel</span>
+          <span class="brand__tag">Technologies</span>
+        </div>
+        <p style="max-width:38ch; color:var(--muted); margin:18px 0 0;">A digital agency fostering business success in West Africa through thoughtful software and honest consulting.</p>
+        <form class="newsletter" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Subscribed ✓';">
+          <input type="email" required placeholder="Your work email" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="foot">
+        <h4>Navigate</h4>
         <a href="#who">Who we are</a>
         <a href="#services">Services</a>
-        <a href="#partners">Our Partners</a>
-        <a href="#contact">Contact</a>
       </div>
-      <div class="theme-switch" role="group" aria-label="Theme">
-        <button data-theme-btn="light" aria-label="Light theme" title="Light"><svg viewBox="0 0 16 16" width="14"
-            height="14" fill="none" stroke="currentColor" stroke-width="1.4">
-            <circle cx="8" cy="8" r="3" />
-            <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3" />
-          </svg></button>
-        <button data-theme-btn="system" aria-label="System theme" title="System"><svg viewBox="0 0 16 16" width="14"
-            height="14" fill="none" stroke="currentColor" stroke-width="1.4">
-            <rect x="1.5" y="2.5" width="13" height="9" rx="1" />
-            <path d="M5 14h6M8 11.5V14" />
-          </svg></button>
-        <button data-theme-btn="dark" aria-label="Dark theme" title="Dark"><svg viewBox="0 0 16 16" width="14"
-            height="14" fill="none" stroke="currentColor" stroke-width="1.4">
-            <path d="M13 9.5A5.5 5.5 0 1 1 6.5 3a4.5 4.5 0 0 0 6.5 6.5z" />
-          </svg></button>
-        <span class="theme-switch__pill" aria-hidden="true"></span>
+      <div class="foot">
+        <h4>Contact</h4>
+        <a href="mailto:hello@ichanneltech.com">hello@ichanneltech.com</a>
+        <a href="tel:+2348000000000">+234 800 000 0000</a>
+        <a>Queen Elizabeth Rd, Mokola<br>Ibadan 200212, Nigeria</a>
       </div>
-      <div class="nav__cta">
-        <a class="btn btn--fill nav__schedule" href="#contact">
-          <span class="nav__schedule-long">Schedule a call</span>
-          <span class="nav__schedule-short">Contact</span>
-          <span class="btn__arrow"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4">
-              <path d="M2 8 L8 2 M4 2 H8 V6" />
-            </svg></span>
-        </a>
-        <button class="burger" aria-label="Open menu"
-          onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      <div class="foot">
+        <h4>Connect</h4>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter / X</a>
+        <a href="#">Instagram</a>
+        <a href="#">GitHub</a>
       </div>
     </div>
-  </nav>
-
-  <!-- Mobile menu -->
-  <div class="mobile" id="mobile">
-    <a href="#who" onclick="toggleMenu()"><span class="num">01</span>Who we are</a>
-    <a href="#services" onclick="toggleMenu()"><span class="num">02</span>Services</a>
-    <a href="#partners" onclick="toggleMenu()"><span class="num">03</span>Our Partners</a>
-    <a href="#contact" onclick="toggleMenu()"><span class="num">04</span>Contact</a>
-  </div>
-
-  <!-- Hero -->
-  <header class="hero" id="home">
-    <div class="wrap">
-      <div class="hero__grid">
-        <h1 class="hero__bigword reveal" aria-label="Building the digital edge">
-          <span id="heroWord" style="font-weight: 500">Building</span><span class="ampersand">.</span>
-        </h1>
-        <div class="hero__tagline reveal">
-          <span class="label">We drive digital transformation</span>
-          <h1>The software, cloud and IT consulting partner helping businesses harness digital.</h1>
-          <p>From idea to production, we design, build, operate and scale the systems that keep your business ahead.</p>
-        </div>
+    <div class="foot__bottom">
+      <div>© 2010–2026 IChannel Technologies. All rights reserved.</div>
+      <div>
+        <a href="privacy.html" style="color:var(--muted);">Privacy &amp; Cookies</a>
       </div>
-
-      <div class="hero__media reveal" style="grid-template-columns: 1fr;">
-        <div class="hero__image">
-          <div class="hero-ph"></div>
-          <div class="hero__tags">
-            <span class="tag accent">Web app ✦</span>
-            <span class="tag">Cloud infra</span>
-            <span class="tag">IT consulting</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="scroll-cue"><span class="line"></span> Scroll to explore</div>
-    </div>
-  </header>
-
-  <!-- About -->
-  <section class="about" id="who">
-    <div class="wrap">
-      <div class="about__grid">
-        <div class="reveal">
-          <span class="label">Who we are</span>
-          <h2>We foster business success by enabling organizations to harness the power of digital <em>technology.</em>
-          </h2>
-        </div>
-        <div class="reveal">
-          <p style="max-width:52ch; color:var(--ink-2); font-size:17px; line-height:1.55;">
-            IChannel Technologies is a full-cycle software and IT consulting company based in Nigeria. For over
-            fifteen years we've helped founders, operators and public institutions start, run and grow their work online
-            — through custom software development, IT consulting, websites and business applications, cloud
-            infrastructure, and the internal tools that keep teams productive.
-          </p>
-          <p style="max-width:52ch; color:var(--muted); font-size:14.5px; margin-top:14px;">
-            Our consulting experience lets us shape personalized answers to real business challenges, not templated
-            ones.
-          </p>
-        </div>
-      </div>
-
-      <div class="stats">
-        <div class="stat reveal">
-          <div class="stat__num" data-count="15">0<sup>+</sup></div>
-          <div class="stat__label">Years in the market</div>
-        </div>
-        <div class="stat reveal">
-          <div class="stat__num" data-count="60">0<sup>+</sup></div>
-          <div class="stat__label">Projects delivered across West Africa</div>
-        </div>
-        <div class="stat reveal">
-          <div class="stat__num" data-count="98">0<sup>%</sup></div>
-          <div class="stat__label">Client retention after first engagement</div>
-        </div>
-        <div class="stat reveal">
-          <div class="stat__num" data-count="24">0<sup>/7</sup></div>
-          <div class="stat__label">Ongoing support &amp; infrastructure monitoring</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="services" id="services">
-    <div class="wrap">
-      <div class="services__head reveal">
-        <div>
-          <span class="label">Our services</span>
-          <h2>Take the lead in <em>innovation.</em></h2>
-        </div>
-        <p style="max-width:42ch; color:var(--muted); margin:0;">A focused set of engagements for teams shipping
-          software, migrating to cloud, or rebuilding how their organization runs.</p>
-      </div>
-
-      <div class="services__grid">
-        <article class="svc reveal">
-          <div>
-            <div class="svc__num">01 — Strategy</div>
-            <h3 class="svc__title">Strategic IT consulting</h3>
-          </div>
-          <p class="svc__desc">We study your business, your stack and your competition, then map the technology
-            decisions that unlock the next chapter.</p>
-        </article>
-
-        <article class="svc reveal">
-          <div>
-            <div class="svc__num">02 — Build</div>
-            <h3 class="svc__title">Web &amp; mobile applications</h3>
-          </div>
-          <p class="svc__desc">Websites, dashboards, business applications, internal tools and customer-facing apps
-            designed for engagement and
-            engineered to last.</p>
-        </article>
-
-        <article class="svc reveal">
-          <div>
-            <div class="svc__num">03 — Run</div>
-            <h3 class="svc__title">Cloud solutions &amp; hosting</h3>
-          </div>
-          <p class="svc__desc">Robust web hosting, compute and collaboration tools from first deployment through scaling
-            with traffic.</p>
-        </article>
-
-        <article class="svc reveal">
-          <div>
-            <div class="svc__num">04 — Plan</div>
-            <h3 class="svc__title">Infrastructure capacity planning</h3>
-          </div>
-          <p class="svc__desc">Right-size your compute, network and storage. Monitor what matters. Avoid surprises when
-            demand spikes.</p>
-        </article>
-
-        <article class="svc reveal">
-          <div>
-            <div class="svc__num">05 — Educate</div>
-            <h3 class="svc__title">Educational technology services</h3>
-          </div>
-          <p class="svc__desc">Learning platforms, CBT systems and school management tools built for African
-            institutions and their realities.</p>
-        </article>
-
-        <article class="svc reveal">
-          <div>
-            <div class="svc__num">06 — Support</div>
-            <h3 class="svc__title">Help desk &amp; IT services</h3>
-          </div>
-          <p class="svc__desc">Ongoing support, monitoring and on-call response, so your team spends the day shipping,
-            not debugging.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section class="process">
-    <div class="wrap">
-      <div class="reveal">
-        <span class="label">How we work</span>
-        <h2>Four steps from <em>idea</em> to something you can ship on Monday.</h2>
-      </div>
-      <div class="steps reveal">
-        <div class="step">
-          <div class="step__num">01</div>
-          <div>
-            <h4 class="step__title">Discover</h4>
-            <p class="step__body">We sit down with stakeholders, audit what exists, and get aligned on goals,
-              constraints and success metrics before anyone touches Figma.</p>
-          </div>
-          <div class="step__toggle">+</div>
-        </div>
-        <div class="step">
-          <div class="step__num">02</div>
-          <div>
-            <h4 class="step__title">Design</h4>
-            <p class="step__body">Information architecture, flows and interface design — iterated with your team in the
-              open, not hidden behind a reveal.</p>
-          </div>
-          <div class="step__toggle">+</div>
-        </div>
-        <div class="step">
-          <div class="step__num">03</div>
-          <div>
-            <h4 class="step__title">Build</h4>
-            <p class="step__body">Engineering in weekly increments. You can see progress on a staging URL every Friday,
-              not at the end.</p>
-          </div>
-          <div class="step__toggle">+</div>
-        </div>
-        <div class="step">
-          <div class="step__num">04</div>
-          <div>
-            <h4 class="step__title">Operate</h4>
-            <p class="step__body">Deployment, monitoring, and the long tail of small improvements that keep the system
-              worth using.</p>
-          </div>
-          <div class="step__toggle">+</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Editorial statement -->
-  <section class="statement">
-    <div class="wrap">
-      <p class="reveal">
-        We build for ambitious
-        <em>teams</em>
-        with bold ideas
-        <span class="inline-img"><span class="hero-ph ph-sand"
-            style="width:100%;height:100%;display:block;"></span></span>
-        and a real need to ship.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- Testimonials -->
-  <section class="tts">
-    <div class="wrap">
-      <div class="tts__head reveal">
-        <div>
-          <span class="label">Clients, in their words</span>
-          <h2>Trusted by operators across West Africa.</h2>
-        </div>
-        <div style="display:flex; gap:10px;">
-          <button class="btn" id="ttPrev" aria-label="Previous">←</button>
-          <button class="btn btn--fill" id="ttNext" aria-label="Next">→</button>
-        </div>
-      </div>
-      <div class="tts__rail" id="ttRail">
-        <article class="tt">
-          <div class="stars">★★★★★</div>
-          <blockquote>"Innovation, creativity and brilliance reflect IChannel's service. They go to great lengths to
-            satisfy their clients with excellent work."</blockquote>
-          <div class="tt__who">
-            <div class="avatar">F</div>
-            <div><b>Frank Aroyewun</b><span>CEO — Emmaus &amp; Encamp</span></div>
-          </div>
-        </article>
-        <article class="tt">
-          <div class="stars">★★★★★</div>
-          <blockquote>"My experience with IChannel has been encouraging. Prompt support services, delivered as
-            required."</blockquote>
-          <div class="tt__who">
-            <div class="avatar">A</div>
-            <div><b>Akinwale Aboluwade</b><span>CEO — OyoReporters</span></div>
-          </div>
-        </article>
-        <article class="tt">
-          <div class="stars">★★★★★</div>
-          <blockquote>"Working with them has brought fulfilment to our publishing team. I recommend them to anyone who
-            wants stress-free results."</blockquote>
-          <div class="tt__who">
-            <div class="avatar">O</div>
-            <div><b>Omotayo O. Babalola</b><span>CEO — Igbomina Today</span></div>
-          </div>
-        </article>
-        <article class="tt">
-          <div class="stars">★★★★★</div>
-          <blockquote>"A rare blend of technical depth and genuine partnership. They explain trade-offs before making
-            them."</blockquote>
-          <div class="tt__who">
-            <div class="avatar">K</div>
-            <div><b>Kayode Adeniyi</b><span>Director of IT — Regional Polytechnic</span></div>
-          </div>
-        </article>
-        <article class="tt">
-          <div class="stars">★★★★★</div>
-          <blockquote>"I have so far had a richly fulfilling experience with iChannel Tech. They don't just offer the
-            services, they ensure that they stay with you all the way."</blockquote>
-          <div class="tt__who">
-            <div class="avatar">B</div>
-            <div><b>Bisi Oladele</b><span>MD — Newspeak & Associate</span></div>
-          </div>
-        </article>
-        <article class="tt">
-          <div class="stars">★★★★★</div>
-          <blockquote>"This outfit has helped improve our business dealings tremendously by helping us incorporate
-            robust IT solutions to our workflow."</blockquote>
-          <div class="tt__who">
-            <div class="avatar">L</div>
-            <div><b>Lanre Balogun</b><span>COO — Lofeta Global Merchant Company</span></div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Partners -->
-  <section class="partners" id="partners">
-    <div class="wrap">
-      <div
-        style="display:flex; justify-content:space-between; align-items:end; margin-bottom:32px; gap:20px; flex-wrap:wrap;">
-        <div>
-          <span class="label">Partners &amp; clients</span>
-          <h2
-            style="font-family:'Instrument Serif'; font-weight:400; font-size:clamp(28px,3vw,44px); margin:12px 0 0; letter-spacing:-0.01em;">
-            Companies we build alongside.</h2>
-        </div>
-      </div>
-      <div class="partners__grid">
-        <!-- Zoho -->
-        <div class="partner">
-          <svg viewBox="0 0 512 178" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            class="partner-logo" role="img" aria-label="Zoho">
-            <defs>
-              <linearGradient x1="49.99%" y1="1.43%" x2="49.99%" y2="96.98%" id="ic-zg1">
-                <stop stop-color="#FFE513" offset="0.56%" />
-                <stop stop-color="#FDB924" offset="100%" />
-              </linearGradient>
-              <linearGradient x1="4.51%" y1="13.49%" x2="95.67%" y2="87.06%" id="ic-zg2">
-                <stop stop-color="#008CD2" offset="0.56%" />
-                <stop stop-color="#00649D" offset="100%" />
-              </linearGradient>
-              <linearGradient x1="50%" y1="27.78%" x2="50%" y2="97.53%" id="ic-zg3">
-                <stop stop-color="#26A146" offset="0%" />
-                <stop stop-color="#008A52" offset="100%" />
-              </linearGradient>
-              <linearGradient x1="43.73%" y1="8.21%" x2="57.54%" y2="93.2%" id="ic-zg4">
-                <stop stop-color="#D92231" offset="0%" />
-                <stop stop-color="#BA2234" offset="100%" />
-              </linearGradient>
-            </defs>
-            <g transform="translate(384,37)">
-              <path d="M128,.7L128,122.1L111.2,138.5L111.2,19.7L128,.7Z" fill="#E79225" />
-              <path d="M17.9,.8L.5,19.7L1.4,20.9L110.5,20.5L111.5,19.7L128,.7L17.9,.8Z" fill="#FFF16D" />
-              <rect fill="url(#ic-zg1)" x=".5" y="19.7" width="111" height="118.9" />
-              <path
-                d="M94.6,62.5C92.4,57,89.1,52,84.8,47.7C80.7,43.5,76.1,40.3,70.9,38.2C65.8,36.1,60.3,35,54.3,35C48.3,35,42.7,36.1,37.6,38.2C32.4,40.3,27.8,43.5,23.7,47.7C19.4,52,16.2,57,14,62.5C11.8,68,10.8,74,10.8,80.6C10.8,87,11.9,93,14.1,98.6C16.3,104.2,19.5,109.2,23.8,113.6C27.8,117.7,32.4,120.8,37.5,122.9C42.6,125,48.3,126.1,54.4,126.1C60.3,126.1,65.8,125,70.9,122.9C76,120.8,80.7,117.7,84.8,113.6C89.1,109.2,92.4,104.2,94.6,98.7C96.8,93.2,97.9,87.1,97.9,80.7C97.9,74,96.8,68,94.6,62.5ZM71.7,101.7C67.4,106.8,61.7,109.4,54.3,109.4C46.9,109.4,41.1,106.8,36.8,101.7C32.5,96.6,30.4,89.5,30.4,80.5C30.4,71.3,32.6,64.2,36.8,59C41.1,53.8,46.8,51.3,54.3,51.3C61.7,51.3,67.4,53.9,71.7,59C75.9,64.2,78.1,71.3,78.1,80.5C78.1,89.5,76,96.6,71.7,101.7Z"
-                fill="#FFFFFF" />
-            </g>
-            <g transform="translate(257,27)">
-              <path
-                d="M116.6,.8L116.6,1.4L130.8,110.5L122.5,133.5L121.4,132.7L106.8,28.1L107.1,26.7L116.2,1.4L116.6,.8Z"
-                fill="#009ADA" />
-              <path d="M7.3,16L116.6,.8L107.4,27L106.1,28.4L3.9,43.4L4.4,24.7L7.3,16Z" fill="#91C9ED" />
-              <path d="M107.4,27L122.5,133.5L14.8,148.6L.3,45.7L6.6,40.8L107.4,27Z" fill="url(#ic-zg2)" />
-              <path
-                d="M89.1,47.4C88.6,44.1,87.5,41.6,85.7,39.9C84.2,38.6,82.4,37.9,80.3,37.9C79.8,37.9,79.2,37.9,78.6,38C75.8,38.4,73.7,39.7,72.4,41.8C71.4,43.3,71,45.2,71,47.4C71,48.2,71.1,49.1,71.2,50L75.1,77.7L44.1,82.3L40.2,54.6C39.7,51.4,38.6,48.9,36.8,47.2C35.3,45.8,33.5,45.1,31.5,45.1C31,45.1,30.5,45.1,30,45.2C27.1,45.6,24.9,46.9,23.5,49C22.5,50.5,22.1,52.4,22.1,54.6C22.1,55.4,22.2,56.3,22.3,57.3L32.9,129.4C33.4,132.7,34.5,135.2,36.5,136.9C38,138.2,39.8,138.8,42,138.8C42.6,138.8,43.2,138.8,43.8,138.7C46.5,138.3,48.5,137,49.8,134.9C50.7,133.4,51.1,131.6,51.1,129.5C51.1,128.7,51,127.8,50.9,126.9L46.6,98.4L77.6,93.8L81.9,122.3C82.4,125.6,83.5,128.1,85.4,129.7C86.9,131,88.7,131.7,90.8,131.7C91.3,131.7,91.9,131.7,92.5,131.6C95.3,131.2,97.4,129.9,98.7,127.8C99.6,126.3,100.1,124.5,100.1,122.3C100.1,121.5,100,120.6,99.9,119.7L89.1,47.4Z"
-                fill="#FFFFFF" />
-            </g>
-            <g transform="translate(123,0)">
-              <path d="M39,0L.1,92.4L5.4,133L5.7,132.9L49.4,34.6L49.2,32.5L39.8,1.3L39,0Z" fill="#66BF6B" />
-              <path d="M39,0L49.1,33.9L49.3,34.6L145.5,77.7L145.8,77.5L137.6,45.1L39,0Z" fill="#98D0A0" />
-              <path d="M49.1,33.9L145.8,77.5L102.1,176.6L5.4,133L49.1,33.9Z" fill="url(#ic-zg3)" />
-              <path
-                d="M116.5,85.5C114.4,79.9,111.5,75.1,107.7,71.1C103.9,67.1,99.3,63.9,93.9,61.6C88.5,59.3,83.1,58.2,77.6,58.2L77.3,58.2C71.7,58.2,66.2,59.5,60.8,61.9C55.1,64.4,50.2,67.8,46,72.3C41.8,76.7,38.4,82.1,35.8,88.3C33.2,94.4,31.8,100.6,31.5,106.7L31.5,108.8C31.5,114.2,32.4,119.5,34.3,124.7C36.3,130.2,39.2,134.9,43,138.9C46.8,142.9,51.5,146.1,57.1,148.4C62.4,150.7,67.8,151.8,73.3,151.8L73.4,151.8C78.9,151.8,84.4,150.6,89.8,148.3C95.5,145.8,100.5,142.3,104.7,137.8C108.9,133.4,112.4,128.1,115,121.9C117.6,115.7,119,109.6,119.3,103.5L119.3,101.7C119.4,96.2,118.5,90.8,116.5,85.5ZM97.2,114.3C93.6,122.9,88.7,128.8,82.8,132C79.6,133.7,76.3,134.6,73,134.6C70.1,134.6,67,133.9,63.9,132.6C57.1,129.7,52.9,125.1,51.1,118.5C50.5,116.3,50.2,114,50.2,111.6C50.2,106.8,51.4,101.5,53.8,95.8C57.5,87,62.4,81,68.3,77.7C71.5,75.9,74.8,75.1,78.1,75.1C81.1,75.1,84.1,75.8,87.3,77.1C94,80,98.2,84.6,100,91.2C100.6,93.3,100.9,95.6,100.9,98C100.9,103,99.7,108.4,97.2,114.3Z"
-                fill="#FFFFFF" />
-            </g>
-            <g transform="translate(0,15)">
-              <path d="M115.4,.7L131.2,106.5L124,143.7L123,142.4L107.6,40.2L107.6,38.2L114.4,2.5L115.4,.7Z"
-                fill="#760D16" />
-              <path d="M0,55.4L7.5,18L115.4,.7L108.1,38.8L108.1,41.3L1.3,56.4L0,55.4Z" fill="#EF463E" />
-              <path d="M108.1,38.8L124,143.7L17.2,160.4L0,55.4L108.1,38.8Z" fill="url(#ic-zg4)" />
-              <path
-                d="M96.6,127C95.8,126,94.6,125.3,93.2,124.8C91.8,124.3,90.1,124.1,88,124.1C86.1,124.1,83.9,124.3,81.5,124.7L53.3,129.5C53.6,127.3,54.7,124.5,56.6,121C58.7,117.1,61.9,112.4,66,107C67.4,105.1,68.5,103.7,69.3,102.7C69.8,102,70.6,101.1,71.6,99.8C78.1,91.3,82,84.4,83.6,79C84.5,75.9,85,72.8,85.2,69.7C85.3,68.8,85.3,68,85.3,67.2C85.3,65,85.1,62.8,84.7,60.6C84.4,58.6,83.9,57,83.2,55.7C82.5,54.4,81.7,53.4,80.7,52.8C79.6,52.1,77.9,51.8,75.8,51.8C74.1,51.8,72,52,69.5,52.4L36.9,58C33,58.7,30,59.8,28.2,61.6C26.7,63,26,64.8,26,66.8C26,67.3,26,67.9,26.1,68.5C26.6,71.3,28,73.3,30.3,74.3C31.7,74.9,33.3,75.2,35.3,75.2C36.6,75.2,38.1,75.1,39.7,74.8L66.9,70C66.9,70.5,67,71,67,71.4C67,73.1,66.7,74.8,66.1,76.4C65.3,78.7,63.3,81.9,60,86C59.1,87.1,57.7,88.9,55.8,91.2C48.4,100.1,43.2,107.7,40,114C37.7,118.4,36.2,122.6,35.3,126.9C34.8,129.4,34.5,131.7,34.5,134C34.5,135.6,34.6,137.2,34.9,138.7C35.3,140.9,35.8,142.7,36.5,144.1C37.2,145.5,38.2,146.6,39.3,147.2C40.4,147.8,41.9,148,44.1,148C46.8,148,50.5,147.6,55.2,146.8L84.8,141.7C90,140.8,93.7,139.5,95.8,137.8C97.5,136.4,98.4,134.5,98.4,132.3C98.4,131.7,98.3,131.1,98.2,130.5C98,129.2,97.5,128,96.6,127Z"
-                fill="#FFFFFF" />
-            </g>
-          </svg>
-        </div>
-        <!-- AWS -->
-        <div class="partner">
-          <svg viewBox="0 -30 150 120" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img"
-            aria-label="Amazon Web Services">
-            <path
-              d="M122.714 62.703c5.28-.643 16.924-2.027 18.997.643 2.072 2.621-2.319 13.649-4.293 18.544-.592 1.484.691 2.077 2.023.94 8.684-7.319 10.954-22.6 9.178-24.825-1.777-2.175-17.023-4.055-26.3 2.473-1.431 1.038-1.184 2.423.395 2.225z"
-              fill="#F90" />
-            <path
-              d="M74.852 89.456c20.28 0 43.865-6.38 60.099-18.396 2.664-1.978.345-4.994-2.369-3.758-18.207 7.714-37.993 11.473-56.003 11.473-26.694 0-52.5-7.368-73.42-19.533-1.827-1.088-3.208.791-1.679 2.176 19.343 17.505 44.951 28.038 73.372 28.038z"
-              fill="#F90" />
-            <path
-              d="M42.632 32.835c0 1.83.197 3.313.542 4.401a26.505 26.505 0 001.58 3.56c.246.396.345.792.345 1.138 0 .495-.296.99-.938 1.484l-3.108 2.077c-.444.296-.889.445-1.283.445-.494 0-.987-.248-1.48-.693a15.29 15.29 0 01-1.777-2.324 38.28 38.28 0 01-1.53-2.918c-3.848 4.55-8.684 6.825-14.506 6.825-4.145 0-7.45-1.187-9.868-3.56-2.418-2.374-3.652-5.54-3.652-9.495 0-4.204 1.48-7.616 4.49-10.187 3.01-2.572 7.007-3.857 12.09-3.857 1.677 0 3.404.148 5.23.395 1.825.248 3.7.643 5.674 1.088v-3.61c0-3.758-.79-6.379-2.32-7.912-1.578-1.533-4.243-2.274-8.042-2.274-1.727 0-3.503.197-5.329.642a39.247 39.247 0 00-5.329 1.682 14.14 14.14 0 01-1.727.643c-.345.098-.592.148-.79.148-.69 0-1.036-.494-1.036-1.533V6.577c0-.791.1-1.385.346-1.73.246-.347.69-.693 1.381-1.04 1.727-.89 3.8-1.631 6.217-2.225C20.23.94 22.797.642 25.51.642c5.872 0 10.164 1.336 12.927 4.006 2.714 2.67 4.096 6.726 4.096 12.165v16.022h.099zm-20.033 7.517c1.628 0 3.306-.297 5.082-.89 1.776-.594 3.355-1.682 4.687-3.165.79-.94 1.382-1.978 1.678-3.165.296-1.187.493-2.621.493-4.302v-2.077a41.135 41.135 0 00-4.539-.84 37.099 37.099 0 00-4.638-.298c-3.306 0-5.724.643-7.352 1.978-1.628 1.336-2.418 3.215-2.418 5.687 0 2.324.592 4.055 1.826 5.242 1.184 1.236 2.911 1.83 5.18 1.83zm39.621 5.34c-.888 0-1.48-.148-1.875-.494-.394-.297-.74-.99-1.036-1.929L47.714 5.044c-.296-.99-.444-1.632-.444-1.978 0-.791.394-1.236 1.184-1.236h4.835c.938 0 1.58.148 1.925.494.395.297.69.99.987 1.929l8.29 32.736 7.697-32.736c.246-.99.542-1.632.937-1.929.395-.297 1.085-.494 1.974-.494h3.947c.938 0 1.579.148 1.974.494.395.297.74.99.937 1.929l7.796 33.132L98.29 4.253c.295-.99.64-1.632.986-1.929.395-.297 1.036-.494 1.925-.494h4.588c.79 0 1.234.395 1.234 1.236 0 .247-.049.494-.099.791a7.041 7.041 0 01-.345 1.236L94.688 43.32c-.297.989-.642 1.631-1.037 1.928-.394.297-1.036.495-1.875.495h-4.243c-.938 0-1.58-.149-1.974-.495-.394-.346-.74-.989-.937-1.978l-7.648-31.895-7.599 31.846c-.247.989-.543 1.632-.938 1.978-.394.346-1.085.494-1.973.494H62.22zm63.405 1.336c-2.566 0-5.132-.297-7.599-.89-2.467-.594-4.391-1.237-5.674-1.979-.79-.445-1.332-.94-1.53-1.384a3.503 3.503 0 01-.296-1.385v-2.522c0-1.038.395-1.533 1.135-1.533.296 0 .592.05.888.148.296.1.74.297 1.234.495a26.791 26.791 0 005.428 1.73c1.973.396 3.898.594 5.871.594 3.109 0 5.527-.544 7.204-1.632 1.678-1.088 2.566-2.67 2.566-4.698 0-1.384-.444-2.521-1.332-3.461-.888-.94-2.566-1.78-4.984-2.571l-7.154-2.226c-3.602-1.137-6.267-2.818-7.895-5.044-1.628-2.176-2.467-4.599-2.467-7.17 0-2.077.444-3.907 1.332-5.489.888-1.582 2.072-2.967 3.553-4.055 1.48-1.137 3.157-1.978 5.131-2.571 1.974-.594 4.046-.841 6.217-.841 1.086 0 2.221.05 3.306.198 1.135.148 2.171.346 3.207.544.987.247 1.925.494 2.813.79.888.298 1.579.594 2.072.891.691.396 1.185.791 1.481 1.236.296.396.444.94.444 1.632V8.16c0 1.039-.395 1.583-1.135 1.583-.395 0-1.036-.198-1.875-.594-2.813-1.285-5.971-1.928-9.474-1.928-2.812 0-5.033.445-6.562 1.384-1.53.94-2.319 2.374-2.319 4.402 0 1.384.493 2.57 1.48 3.51s2.812 1.88 5.427 2.72l7.007 2.226c3.553 1.137 6.118 2.72 7.648 4.747 1.53 2.027 2.27 4.351 2.27 6.923 0 2.126-.444 4.055-1.283 5.736-.888 1.681-2.072 3.165-3.602 4.352-1.53 1.236-3.355 2.126-5.477 2.769-2.22.692-4.54 1.039-7.056 1.039z"
-              fill="#252F3E" />
-          </svg>
-        </div>
-        <!-- Cloudflare -->
-        <div class="partner">
-          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img"
-            aria-label="Cloudflare">
-            <path
-              d="M25.079 15.102c-0.015-0-0.032-0.001-0.049-0.001-0.087 0-0.174 0.005-0.258 0.016l0.010-0.001c-0.074 0.004-0.136 0.054-0.158 0.121l-0 0.001-0.422 1.468c-0.068 0.187-0.108 0.402-0.108 0.627 0 0.378 0.112 0.731 0.305 1.026l-0.004-0.007c0.309 0.397 0.786 0.649 1.323 0.649 0.002 0 0.004 0 0.005 0h-0l2.304 0.142c0.001-0 0.003-0 0.004-0 0.067 0 0.127 0.035 0.161 0.087l0 0.001c0.022 0.037 0.035 0.082 0.035 0.129 0 0.023-0.003 0.046-0.009 0.068l0-0.002c-0.040 0.107-0.138 0.184-0.254 0.194l-0.001 0-2.401 0.14c-1.447 0.159-2.644 1.089-3.18 2.366l-0.010 0.026-0.176 0.448c-0.006 0.015-0.010 0.032-0.010 0.050 0 0.070 0.057 0.127 0.127 0.127 0.002 0 0.004-0 0.006-0h8.244c0.001 0 0.002 0 0.002 0 0.099 0 0.182-0.066 0.208-0.156l0-0.002c0.138-0.479 0.218-1.030 0.22-1.599v-0.001c-0.009-3.262-2.653-5.903-5.916-5.907h-0zM21.634 22.054c0.068-0.186 0.107-0.401 0.107-0.625 0-0.379-0.112-0.731-0.306-1.026l0.004 0.007c-0.308-0.397-0.785-0.65-1.322-0.65-0.002 0-0.003 0-0.005 0h0l-10.821-0.14c-0.001 0-0.002 0-0.003 0-0.068 0-0.128-0.035-0.163-0.088l-0-0.001c-0.022-0.036-0.036-0.080-0.036-0.127 0-0.024 0.003-0.047 0.010-0.069l-0 0.002c0.040-0.107 0.137-0.184 0.253-0.195l0.001-0 10.917-0.14c1.447-0.16 2.643-1.090 3.182-2.366l0.010-0.026 0.624-1.626c0.017-0.039 0.027-0.085 0.027-0.133 0-0.027-0.003-0.054-0.009-0.079l0 0.002c-0.735-3.203-3.561-5.555-6.936-5.555-3.109 0-5.751 1.996-6.717 4.776l-0.015 0.050c-0.528-0.399-1.195-0.64-1.919-0.64-1.651 0-3.010 1.252-3.179 2.859l-0.001 0.014c-0.010 0.097-0.016 0.21-0.016 0.324 0 0.281 0.035 0.555 0.1 0.816l-0.005-0.023c-2.452 0.071-4.413 2.076-4.413 4.539 0 0.002 0 0.004 0 0.006v-0c0.002 0.234 0.018 0.463 0.047 0.687l-0.003-0.028c0.017 0.104 0.104 0.182 0.211 0.184h19.971c0.12-0.003 0.22-0.083 0.253-0.192l0-0.002 0.15-0.533z"
-              fill="currentColor" />
-          </svg>
-        </div>
-        <!-- DigitalOcean -->
-        <div class="partner">
-          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img"
-            aria-label="DigitalOcean">
-            <path
-              d="M5.787 25.2v-3.721h-3.72v3.721zM10.239 25.2h-4.451v4.454h4.451zM16.050 1.004c-0.009-0-0.020-0-0.030-0-8.281 0-14.996 6.706-15.009 14.984v0.001h5.796c0.022-5.082 4.147-9.193 9.232-9.193 1.203 0 2.353 0.23 3.407 0.649l-0.062-0.022c2.414 0.898 4.284 2.769 5.163 5.123l0.020 0.060c0.399 0.994 0.631 2.146 0.631 3.352 0 5.078-4.104 9.198-9.176 9.224h-0.003v-5.761h-5.777v5.777h5.761v5.796c8.293-0.019 15.008-6.746 15.008-15.042 0-1.695-0.28-3.325-0.797-4.846l0.031 0.106c-1.459-4.518-4.948-8.007-9.363-9.437l-0.103-0.029c-1.412-0.462-3.037-0.734-4.724-0.744l-0.005-0z"
-              fill="currentColor" />
-          </svg>
-        </div>
-        <!-- Flutterwave -->
-        <div class="partner">
-          <svg viewBox="0 0 1013.12 241.26" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img"
-            aria-label="Flutterwave">
-            <rect fill="#2a3362" x="328.78" y="82.1" width="16.11" height="82.89" />
-            <path fill="#2a3362"
-              d="M407.24,135.58c0,11.44-7.36,16.58-17.16,16.58s-16.35-5.14-16.35-16V106.62H357.62V139.9c0,16.57,10.39,26.26,27.67,26.26,10.86,0,16.93-4,21-8.52h.94l1.4,7.36h14.82V106.62H407.24Z" />
-            <path fill="#2a3362"
-              d="M565.27,153.44c-11.79,0-18.44-5.37-19.49-13.19h51.13a33.78,33.78,0,0,0,.35-4.91c-.11-21-16-29.89-33-29.89-19.73,0-34.56,11.8-34.56,30.83,0,18.09,14.25,29.88,35.61,29.88,17.87,0,29.77-7.93,32.23-20.08H581.62C579.63,150.87,573.91,153.44,565.27,153.44Zm-1-35.26c10.28,0,16.23,4.55,17.17,11H546.13C547.64,123,553.6,118.18,564.22,118.18Z" />
-            <path fill="#2a3362"
-              d="M624.63,115h-1l-1.52-8.41H607.47V165h16.11V139.9c0-11.33,6.53-17.63,18.68-17.63a32.5,32.5,0,0,1,6.58.58V106.62h-2.25C635.85,106.62,629.18,108.84,624.63,115Z" />
-            <polygon fill="#2a3362"
-              points="727.94 146.78 727.01 146.78 713.23 110.24 696.65 110.24 683.11 146.67 682.06 146.67 669.22 106.62 653.22 106.62 672.95 165 690.47 165 704.48 127.75 705.41 127.75 719.19 165 736.82 165 756.55 106.62 740.55 106.62 727.94 146.78" />
-            <path fill="#2a3362"
-              d="M820.67,148V128.46c0-15.88-13.43-23-30.13-23-17.74,0-28.83,8.41-30.35,21H776.3c1.17-5.49,5.84-8.52,14.24-8.52s14,3.15,14,9.57V129l-26.27,2c-12.14.94-21,6.31-21,17.75,0,11.79,10.16,17.39,25.1,17.39,12.06,0,19.41-3.36,23.91-8.43h.8c2.53,5.7,7.66,7.27,13.24,7.27h6.77V153.09h-1.52C822.18,153.09,820.67,151.46,820.67,148Zm-16.12-6.19c0,9.23-11,12.26-20.43,12.26-6.42,0-10.62-1.63-10.62-6.07,0-4,3.62-5.95,9-6.42l22.06-1.63Z" />
-            <polygon fill="#2a3362"
-              points="880.23 106.62 861.43 148.89 860.38 148.89 841.35 106.62 823.95 106.62 851.15 165 870.42 165 897.5 106.62 880.23 106.62" />
-            <path fill="#2a3362"
-              d="M949,146.08c-2,4.79-7.71,7.36-16.35,7.36-11.79,0-18.44-5.37-19.49-13.19h51.13a33.78,33.78,0,0,0,.35-4.91c-.11-21-16-29.89-33-29.89-19.73,0-34.55,11.8-34.55,30.83,0,18.09,14.24,29.88,35.6,29.88,17.87,0,29.77-7.93,32.23-20.08Zm-17.4-27.9c10.28,0,16.23,4.55,17.17,11H913.47C915,123,920.94,118.18,931.56,118.18Z" />
-            <path fill="#2a3362"
-              d="M302.6,102.32c0-5.14,3.62-7.35,8.29-7.35a24.17,24.17,0,0,1,6.42.93L320,84.22a36.71,36.71,0,0,0-12.14-2.1c-11.91,0-21.48,6.31-21.48,19.38v5.12h-13.9v12.79h13.9V165H302.6v-45.6h18.16V106.62H302.6Z" />
-            <path fill="#2a3362"
-              d="M459,90.16H444l-.84,16.46H430.48v12.79h12.38v28.78c0,9.8,5,18,20,18a52.84,52.84,0,0,0,11.56-1.28V152.62a34.29,34.29,0,0,1-6.66.82c-8.05,0-8.75-4.55-8.75-8.06v-26h16V106.62H459Z" />
-            <path fill="#2a3362"
-              d="M509.59,90.16H494.64l-.84,16.46H481.09v12.79h12.38v28.78c0,9.8,5,18,20,18A52.84,52.84,0,0,0,525,164.88V152.62a34.29,34.29,0,0,1-6.66.82c-8.05,0-8.75-4.55-8.75-8.06v-26h16.05V106.62H509.59Z" />
-            <path fill="#009a46"
-              d="M48.23,79.89c0-9.37,2.74-17.37,8.49-23.12l10,10C55.59,77.86,65.31,112.34,97,144.06s66.19,41.43,77.31,30.32l10,10c-18.76,18.76-61.49,5.45-97.26-30.33C62.24,129.23,48.23,101.07,48.23,79.89Z" />
-            <path fill="#ff5805"
-              d="M111.29,193c-9.37,0-17.37-2.74-23.13-8.49l10-10c11.11,11.11,45.59,1.39,77.31-30.32S216.89,78,205.78,66.89l10-10c18.77,18.76,5.45,61.49-30.33,97.26C160.63,179,132.47,193,111.29,193Z" />
-            <path fill="#f5afcb"
-              d="M188.76,139.84c-6.07-17.48-18.47-36.16-34.92-52.6-35.77-35.78-78.5-49.1-97.26-30.33h0c-1.33,1.34-.18,4.65,2.58,7.41s6.07,3.9,7.4,2.57c11.12-11.11,45.6-1.39,77.31,30.33,15,15,26.18,31.75,31.57,47.25,4.72,13.59,4.26,24.55-1.24,30.05h0c-1.34,1.33-.18,4.65,2.57,7.4s6.07,3.91,7.41,2.57C193.79,174.88,195.42,159,188.76,139.84Z" />
-            <path fill="#ff9b00"
-              d="M215.76,56.91c-9.63-9.63-25.49-11.26-44.67-4.59-17.47,6.06-36.16,18.47-52.6,34.91C82.72,123,69.4,165.73,88.16,184.5h0c1.34,1.33,4.65.18,7.41-2.57s3.91-6.07,2.57-7.41C87,163.41,96.75,128.93,128.47,97.21c15-15,31.75-26.18,47.25-31.57,13.59-4.71,24.55-4.26,30.06,1.24h0c1.33,1.33,4.65.18,7.4-2.58S217.09,58.24,215.76,56.91Z" />
-          </svg>
-        </div>
-        <!-- Quidax -->
-        <div class="partner">
-          <svg viewBox="0 0 3749 900" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img"
-            aria-label="Quidax">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M450.095 900C698.676 900 900.19 698.528 900.19 450C900.19 201.472 698.676 0 450.095 0C201.515 0 0 201.472 0 450C0 698.528 201.515 900 450.095 900ZM612.532 685.498C566.323 717.571 510.22 736.364 449.732 736.364C291.745 736.364 163.672 608.155 163.672 450.001C163.672 291.847 291.745 163.638 449.732 163.638C607.719 163.638 735.793 291.847 735.793 450.001C735.793 485.306 729.411 519.119 717.738 550.346C672.464 533.915 622.002 529.003 575.797 540.098C594.191 514.435 605.02 482.972 605.02 448.976C605.02 362.556 535.037 292.499 448.709 292.499C362.38 292.499 292.397 362.556 292.397 448.976C292.397 535.396 362.38 605.453 448.709 605.453C468.608 605.453 487.639 601.731 505.144 594.944C548.944 620.356 586.707 656.827 612.532 685.498ZM761.475 646.663C741.068 678.892 715.794 707.734 686.685 732.157C654.802 690.095 590.347 626.579 519.203 586.023C584.94 536.754 686.772 568.26 761.475 646.663Z"
-              fill="#3E2284" />
-            <g opacity="0.15">
-              <path
-                d="M863.082 270.786C793.886 111.616 635.33 0.254 450.728 0C263.983 0.257 103.892 114.217 36.001 276.349C76.868 315.142 123.224 348.207 173.785 374.258C206.96 252.859 317.938 163.637 449.733 163.637C580.509 163.637 690.789 251.486 724.897 371.449C775.754 344.585 822.26 310.586 863.082 270.786Z"
-                fill="white" />
-              <path
-                d="M602.285 419.672C588.581 347.258 525.033 292.498 448.71 292.498C372.02 292.498 308.229 347.785 294.941 420.716C343.382 433.415 394.226 440.177 446.65 440.177C500.492 440.177 552.668 433.044 602.285 419.672Z"
-                fill="white" />
-            </g>
-            <path
-              d="M1347.15 218.023C1283.49 218.023 1231.16 239.826 1190.17 282.558C1150.06 325.291 1130 381.977 1130 452.616C1130 523.256 1150.06 579.942 1190.17 622.674C1231.16 665.407 1283.49 687.209 1347.15 687.209C1403.84 687.209 1445.7 671.512 1474.48 639.244V900H1600.93V226.744H1481.45V273.837C1453.55 236.337 1409.07 218.023 1347.15 218.023ZM1368.08 327.035C1431.74 327.035 1474.48 371.512 1474.48 442.151V463.081C1474.48 533.721 1431.74 578.198 1368.08 578.198C1302.67 578.198 1259.07 531.977 1259.07 452.616C1259.07 373.256 1302.67 327.035 1368.08 327.035Z"
-              fill="#3E2284" />
-            <path
-              d="M2081.78 226.744H1954.45V481.395C1954.45 533.721 1925.68 568.605 1877.71 568.605C1829.75 568.605 1805.33 539.826 1805.33 483.14V226.744H1678V510.174C1678 620.93 1740.79 687.209 1844.57 687.209C1899.51 687.209 1938.76 668.895 1961.43 632.267V677.616H2081.78V226.744Z"
-              fill="#3E2284" />
-            <path
-              d="M2225.42 2.616C2161.76 -0.872 2122.52 89.826 2171.35 133.43C2200.13 162.209 2250.71 162.209 2279.49 133.43C2294.32 118.605 2302.17 100.291 2302.17 79.36C2302.17 36.628 2268.16 2.616 2225.42 2.616ZM2289.09 226.744H2161.76V677.616H2289.09V226.744Z"
-              fill="#3E2284" />
-            <path
-              d="M2816.85 0H2690.39V265.988C2662.48 233.721 2619.75 218.023 2563.07 218.023C2499.4 218.023 2447.08 239.826 2406.09 282.558C2365.97 325.291 2345.91 381.977 2345.91 452.616C2345.91 523.256 2365.97 579.942 2406.09 622.674C2447.08 665.407 2499.4 687.209 2563.07 687.209C2623.24 687.209 2672.08 663.663 2697.37 631.395V677.616H2816.85V0ZM2584 327.035C2647.66 327.035 2690.39 371.512 2690.39 442.151V462.209C2690.39 534.593 2647.66 577.326 2584 577.326C2518.59 577.326 2474.98 531.977 2474.98 452.616C2474.98 373.256 2518.59 327.035 2584 327.035Z"
-              fill="#3E2284" />
-            <path
-              d="M3074.44 218.023C3019.5 218.023 2974.15 234.593 2938.39 267.733C2903.51 300 2886.07 337.5 2886.07 379.36L3013.39 384.593C3013.39 352.326 3035.2 325.291 3076.18 325.291C3115.43 325.291 3134.61 348.837 3134.61 395.058V412.5L3054.38 416.86C2934.03 422.093 2873.86 467.442 2873.86 553.779C2873.86 640.116 2930.54 687.209 3023.86 687.209C3070.95 687.209 3109.32 671.512 3138.97 640.988V677.616H3261.94V399.419C3261.94 280.814 3196.53 218.023 3074.44 218.023ZM3134.61 515.407C3134.61 561.628 3101.47 588.663 3053.51 588.663C3018.63 588.663 3001.18 574.709 3001.18 547.674C3001.18 518.023 3022.99 502.326 3066.59 500.581L3134.61 496.221V515.407Z"
-              fill="#3E2284" />
-            <path
-              d="M3744.89 226.744H3600.13L3516.41 364.535L3432.69 226.744H3287.92L3426.58 450L3286.17 677.616H3430.94L3516.41 537.209L3602.74 677.616H3748.38L3605.36 450L3744.89 226.744Z"
-              fill="#3E2284" />
-          </svg>
-        </div>
-        <!-- TeamApt -->
-        <div class="partner">
-          <svg viewBox="0 410 1000 215" xmlns="http://www.w3.org/2000/svg" class="partner-logo" role="img"
-            aria-label="TeamApt">
-            <path
-              d="M307.87,437.94H279.16v13.51c0,9.71-5.27,17.1-16.25,17.1h-5.28v28.07h18.58v45c0,20.9,13.3,33.77,35,33.77,10.13,0,15.41-2.32,16.67-3V545.8a39,39,0,0,1-8.44,1.06c-7,0-11.61-2.32-11.61-11V496.62h20.48V468.55H307.87Z"
-              style="fill:#4f5c66" />
-            <path
-              d="M365.68,508.44c.63-7.81,7.39-17.73,20.9-17.73,15.19,0,20.68,9.71,21.1,17.73ZM410,535.67c-3,8.23-9.5,13.72-21.11,13.72-12.46,0-23.22-8.44-23.85-20.26h73a67.4,67.4,0,0,0,.63-9.92c0-33.78-20-53.83-52.56-53.83-27.23,0-52.35,21.53-52.35,55.3,0,35.25,25.76,55.94,54.68,55.94,26.59,0,43.27-15.2,48.33-33.35Z"
-              style="fill:#4f5c66" />
-            <path
-              d="M444.54,544.54c0,16.67,13.3,31.87,36.31,31.87,13.93,0,24.06-5.91,29.55-14.78,0,7.18-.21,11,0,11.82h28.7c-.21-1.05,0-8,0-16.25V505.91c0-21.53-12.45-40.53-46.43-40.53-30.82,0-44.75,19.84-46,34.83l27.86,5.7c.64-7.81,6.76-15.41,17.95-15.41,10.13,0,15.4,5.28,15.4,11.4,0,3.59-1.9,6.33-7.59,7.17l-24.7,3.8C458.26,515.41,444.54,526,444.54,544.54Zm44.12,8.65c-8.87,0-12.46-5.28-12.46-10.76,0-7.39,5.07-10.56,11.82-11.61l19.84-3.17v4.64C507.86,548.55,498.15,553.19,488.66,553.19Z"
-              style="fill:#4f5c66" />
-            <path
-              d="M584,573.45V513.08c0-9.49,6.12-18.15,17.31-18.15,11.61,0,16.88,7.81,16.88,17.73v60.79H649.9V512.87c0-9.28,6.12-17.94,17.52-17.94s16.67,7.81,16.67,17.73v60.79h31v-68c0-28.5-19-40.11-38.84-40.11-14.14,0-24.27,4.64-32.51,16.46-5.27-10.34-16-16.46-31-16.46-11.4,0-24.91,5.91-30.19,15.2v-12H552v104.9Z"
-              style="fill:#4f5c66" />
-            <path
-              d="M728.83,546.23c0,16,13.3,30.39,34,30.39,18.15,0,28.28-9.71,32.71-16.89,0,7.39-.42,11.19,0,13.72h19.21c-.42-2.53,0-7.81,0-16.67V505.91c0-19.84-11.82-37.15-42.21-37.15-22,0-39.48,13.51-41.59,32.93l19,4.43c1.27-11.82,9.08-20.48,23-20.48,15.41,0,21.95,8.24,21.95,18.16,0,3.59-1.69,6.75-7.81,7.6l-27.44,4C742.13,517.94,728.83,528.07,728.83,546.23ZM765.56,560c-10.13,0-16.47-7.18-16.47-14.78,0-9.08,6.34-13.93,14.78-15.2l31-4.64V530C794.9,552.14,781.81,560,765.56,560Z"
-              style="fill:#4f5c66" />
-            <path
-              d="M845.43,613.56V559.73c5.49,9.08,17.31,16.47,32.93,16.47,29.76,0,47.28-23.43,47.28-53.62,0-29.55-16.25-53-46.65-53-16.46,0-28.49,8-34,18.15V471.92H825.8V613.56Zm60-91c0,20.9-11.61,35.89-30,35.89-18.15,0-30.18-15-30.18-35.89,0-20.26,12-35.46,30.18-35.46C894,487.12,905.38,502.32,905.38,522.58Z"
-              style="fill:#4f5c66" />
-            <path
-              d="M968.05,439.84H949.89V456.3c0,8.87-4.64,15.62-15.62,15.62h-5.48v17.95h19.42v55.72c0,18.37,11,28.92,28.28,28.92a43.51,43.51,0,0,0,13.51-1.9V555.72a39.56,39.56,0,0,1-7.81.85c-10.34,0-14.14-4.65-14.14-13.93V489.87h22V471.92h-22Z"
-              style="fill:#4f5c66" />
-            <path
-              d="M88.92,559.35l4.71,7.59A36.33,36.33,0,0,0,67,563.08l-18.16,4.29c-31,7.45-52.18-30.94-29.16-53.29L71,463.93a75.4,75.4,0,0,0,4.15,73.5Z"
-              style="fill:#0371ac" />
-            <path
-              d="M198.43,549.75l-.29,28.8a36.42,36.42,0,0,1-67.48,19.05L101.5,551,87.06,528.26a70.24,70.24,0,0,1-10.44-45,67.42,67.42,0,0,1,5.29-19.63,37.24,37.24,0,0,0,1.29,7.88A42.08,42.08,0,0,0,112.65,502L174.41,520A33.93,33.93,0,0,1,198.43,549.75Z"
-              style="fill:#29abe2" />
-            <path
-              d="M198.86,417.93v7.17L198,519.8a.14.14,0,0,0-.14-.14,40.41,40.41,0,0,0-21-14.33l-59.48-17.19a32.1,32.1,0,0,1-22.3-23.21,31.67,31.67,0,0,1,5-26.79,36.44,36.44,0,0,1,3.71-4.3l40.32-39.4a32.24,32.24,0,0,1,54.76,23.49Z"
-              style="fill:#fbb416" />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- CTA -->
-  <section class="cta" id="contact">
-    <div class="wrap">
-      <div class="cta__inner reveal">
-        <h2>Tell us what you're <em>building.</em> We'll tell you how we'd ship it.</h2>
-        <div class="cta__side">
-          <p>A 30-minute call, no slide deck required. Bring a rough idea or a finished RFP — either works.</p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn--fill" href="mailto:hello@ichanneltech.com">
-              Schedule a call
-              <span class="btn__arrow"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <path d="M2 8 L8 2 M4 2 H8 V6" />
-                </svg></span>
-            </a>
-            <a class="btn" href="mailto:hello@ichanneltech.com">Contact Us</a>
-          </div>
-        </div>
-        <div class="cta__orb"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="wrap">
-      <div class="foot__top">
-        <div>
-          <div class="brand">
-            <span class="brand__name">IChannel</span>
-            <span class="brand__tag">Technologies</span>
-          </div>
-          <p style="max-width:38ch; color:var(--muted); margin:18px 0 0;">A digital agency fostering business success in
-            West Africa through thoughtful software and honest consulting.</p>
-          <form class="newsletter"
-            onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Subscribed ✓';">
-            <input type="email" required placeholder="Your work email" />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-        <div class="foot">
-          <h4>Navigate</h4>
-          <a href="#who">Who we are</a>
-          <a href="#services">Services</a>
-        </div>
-        <div class="foot">
-          <h4>Contact</h4>
-          <a href="mailto:hello@ichanneltech.com">hello@ichanneltech.com</a>
-          <a href="tel:+2348000000000">+234 800 000 0000</a>
-          <a>Queen Elizabeth Rd, Mokola<br>Ibadan 200212, Nigeria</a>
-        </div>
-        <div class="foot">
-          <h4>Connect</h4>
-          <a href="#">LinkedIn</a>
-          <a href="#">Twitter / X</a>
-          <a href="#">Instagram</a>
-          <a href="#">GitHub</a>
-        </div>
-      </div>
-      <div class="foot__bottom">
-        <div>© 2010–2026 IChannel Technologies. All rights reserved.</div>
-        <div>
-          <a href="privacy.html" style="color:var(--muted);">Privacy &amp; Cookies</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Tweaks -->
-  <div id="tweaks">
-    <h5>Tweaks</h5>
-    <div class="row">
-      <label>Accent color</label>
-      <input type="color" id="tw-accent" />
-    </div>
-    <div class="row">
-      <label>Background</label>
-      <input type="color" id="tw-bg" />
-    </div>
-    <div class="row">
-      <label>Hero word</label>
-      <input type="text" id="tw-hero" maxlength="14" />
-    </div>
-    <div class="row">
-      <label>Nav style</label>
-      <select id="tw-nav">
-        <option value="light">Light (paper)</option>
-        <option value="dark">Dark</option>
-      </select>
     </div>
   </div>
+</footer>
 
-  <script>
-    // ---------- Theme (light/dark/system) ----------
-    (function () {
-      const root = document.documentElement;
-      const saved = localStorage.getItem('ic-theme') || 'system';
-      root.setAttribute('data-theme', saved);
-      function setTheme(t) {
-        root.setAttribute('data-theme', t);
-        localStorage.setItem('ic-theme', t);
-        document.querySelectorAll('[data-theme-btn]').forEach(b => {
-          b.setAttribute('aria-pressed', b.dataset.themeBtn === t ? 'true' : 'false');
-        });
-      }
-      window.__setTheme = setTheme;
-      document.addEventListener('DOMContentLoaded', () => setTheme(localStorage.getItem('ic-theme') || 'system'));
-    })();
-  </script>
-  <script>
-    // ---------- Apply tweaks on load ----------
-    const T = window.__TWEAKS__ || {};
+<!-- Tweaks -->
+<div id="tweaks">
+  <h5>Tweaks</h5>
+  <div class="row">
+    <label>Accent color</label>
+    <input type="color" id="tw-accent" />
+  </div>
+  <div class="row">
+    <label>Background</label>
+    <input type="color" id="tw-bg" />
+  </div>
+  <div class="row">
+    <label>Hero word</label>
+    <input type="text" id="tw-hero" maxlength="14" />
+  </div>
+  <div class="row">
+    <label>Nav style</label>
+    <select id="tw-nav"><option value="light">Light (paper)</option><option value="dark">Dark</option></select>
+  </div>
+</div>
+
+<script>
+  // ---------- Theme (light/dark/system) ----------
+  (function(){
     const root = document.documentElement;
-    if (T.accent) root.style.setProperty('--accent', T.accent);
-    // Only apply saved bg in light mode so dark theme can override
-    function applyBg() {
-      const theme = root.getAttribute('data-theme') || 'system';
-      const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDark = theme === 'dark' || (theme === 'system' && prefersDark);
-      if (T.bg && !isDark) root.style.setProperty('--bg', T.bg);
-      else root.style.removeProperty('--bg');
-    }
-    applyBg();
-    new MutationObserver(applyBg).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyBg);
-    if (T.heroWord) document.getElementById('heroWord').textContent = T.heroWord;
-    const navEl = document.getElementById('nav');
-    if (T.navStyle === 'dark') navEl.classList.add('dark');
-
-    // Wire theme switch buttons
-    document.querySelectorAll('[data-theme-btn]').forEach(b => {
-      b.addEventListener('click', () => window.__setTheme(b.dataset.themeBtn));
-    });
-
-    // ---------- Mobile menu ----------
-    function toggleMenu() { document.getElementById('mobile').classList.toggle('open'); }
-    window.toggleMenu = toggleMenu;
-
-    // ---------- Smooth scroll ----------
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href');
-        if (id.length > 1) {
-          const t = document.querySelector(id);
-          if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-        }
+    const saved = localStorage.getItem('ic-theme') || 'system';
+    root.setAttribute('data-theme', saved);
+    function setTheme(t){
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('ic-theme', t);
+      document.querySelectorAll('[data-theme-btn]').forEach(b => {
+        b.setAttribute('aria-pressed', b.dataset.themeBtn === t ? 'true' : 'false');
       });
-    });
-
-    // ---------- Reveal on scroll ----------
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(n => io.observe(n));
-
-    // ---------- Stat counter ----------
-    const cio = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const el = e.target;
-          const target = +el.dataset.count;
-          const suffix = el.querySelector('sup')?.outerHTML || '';
-          let n = 0; const step = Math.max(1, Math.round(target / 40));
-          const t = setInterval(() => {
-            n += step; if (n >= target) { n = target; clearInterval(t); }
-            el.innerHTML = n + suffix;
-          }, 24);
-          cio.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-count]').forEach(n => cio.observe(n));
-
-    // ---------- Testimonials scroll ----------
-    const rail = document.getElementById('ttRail');
-    document.getElementById('ttPrev').onclick = () => rail.scrollBy({ left: -rail.clientWidth * 0.8, behavior: 'smooth' });
-    document.getElementById('ttNext').onclick = () => rail.scrollBy({ left: rail.clientWidth * 0.8, behavior: 'smooth' });
-
-    // ---------- Tweaks panel protocol ----------
-    const tweakPanel = document.getElementById('tweaks');
-    const twAccent = document.getElementById('tw-accent');
-    const twBg = document.getElementById('tw-bg');
-    const twHero = document.getElementById('tw-hero');
-    const twNav = document.getElementById('tw-nav');
-    twAccent.value = T.accent || '#326bc8';
-    twBg.value = T.bg || '#F8F7F3';
-    twHero.value = T.heroWord || 'Building';
-    twNav.value = T.navStyle || 'light';
-
-    function persist(patch) {
-      try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: patch }, '*'); } catch (_) { }
     }
-    twAccent.addEventListener('input', e => { root.style.setProperty('--accent', e.target.value); persist({ accent: e.target.value }); });
-    twBg.addEventListener('input', e => { root.style.setProperty('--bg', e.target.value); persist({ bg: e.target.value }); });
-    twHero.addEventListener('input', e => { document.getElementById('heroWord').textContent = e.target.value || 'Building'; persist({ heroWord: e.target.value }); });
-    twNav.addEventListener('change', e => { navEl.classList.toggle('dark', e.target.value === 'dark'); persist({ navStyle: e.target.value }); });
+    window.__setTheme = setTheme;
+    document.addEventListener('DOMContentLoaded', () => setTheme(localStorage.getItem('ic-theme') || 'system'));
+  })();
+</script>
+<script>
+  // ---------- Apply tweaks on load ----------
+  const T = window.__TWEAKS__ || {};
+  const root = document.documentElement;
+  if (T.accent) root.style.setProperty('--accent', T.accent);
+  // Only apply saved bg in light mode so dark theme can override
+  function applyBg(){
+    const theme = root.getAttribute('data-theme') || 'system';
+    const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = theme === 'dark' || (theme === 'system' && prefersDark);
+    if (T.bg && !isDark) root.style.setProperty('--bg', T.bg);
+    else root.style.removeProperty('--bg');
+  }
+  applyBg();
+  new MutationObserver(applyBg).observe(root, {attributes:true, attributeFilter:['data-theme']});
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyBg);
+  if (T.heroWord) document.getElementById('heroWord').textContent = T.heroWord;
+  const navEl = document.getElementById('nav');
+  if (T.navStyle === 'dark') navEl.classList.add('dark');
 
-    window.addEventListener('message', (ev) => {
-      const d = ev.data || {};
-      if (d.type === '__activate_edit_mode') tweakPanel.classList.add('open');
-      if (d.type === '__deactivate_edit_mode') tweakPanel.classList.remove('open');
+  // Wire theme switch buttons
+  document.querySelectorAll('[data-theme-btn]').forEach(b => {
+    b.addEventListener('click', () => window.__setTheme(b.dataset.themeBtn));
+  });
+
+  // ---------- Mobile menu ----------
+  function toggleMenu() { document.getElementById('mobile').classList.toggle('open'); }
+  window.toggleMenu = toggleMenu;
+
+  // ---------- Smooth scroll ----------
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const t = document.querySelector(id);
+        if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+      }
     });
-    try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (_) { }
-  </script>
+  });
+
+  // ---------- Reveal on scroll ----------
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(n => io.observe(n));
+
+  // ---------- Stat counter ----------
+  const cio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const target = +el.dataset.count;
+        const suffix = el.querySelector('sup')?.outerHTML || '';
+        let n = 0; const step = Math.max(1, Math.round(target / 40));
+        const t = setInterval(() => {
+          n += step; if (n >= target) { n = target; clearInterval(t); }
+          el.innerHTML = n + suffix;
+        }, 24);
+        cio.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach(n => cio.observe(n));
+
+  // ---------- Testimonials scroll ----------
+  const rail = document.getElementById('ttRail');
+  document.getElementById('ttPrev').onclick = () => rail.scrollBy({left: -rail.clientWidth * 0.8, behavior: 'smooth'});
+  document.getElementById('ttNext').onclick = () => rail.scrollBy({left:  rail.clientWidth * 0.8, behavior: 'smooth'});
+
+  // ---------- Tweaks panel protocol ----------
+  const tweakPanel = document.getElementById('tweaks');
+  const twAccent = document.getElementById('tw-accent');
+  const twBg = document.getElementById('tw-bg');
+  const twHero = document.getElementById('tw-hero');
+  const twNav = document.getElementById('tw-nav');
+  twAccent.value = T.accent || '#326bc8';
+  twBg.value = T.bg || '#F8F7F3';
+  twHero.value = T.heroWord || 'Building';
+  twNav.value = T.navStyle || 'light';
+
+  function persist(patch) {
+    try { window.parent.postMessage({type:'__edit_mode_set_keys', edits: patch}, '*'); } catch(_) {}
+  }
+  twAccent.addEventListener('input', e => { root.style.setProperty('--accent', e.target.value); persist({accent: e.target.value}); });
+  twBg.addEventListener('input', e => { root.style.setProperty('--bg', e.target.value); persist({bg: e.target.value}); });
+  twHero.addEventListener('input', e => { document.getElementById('heroWord').textContent = e.target.value || 'Building'; persist({heroWord: e.target.value}); });
+  twNav.addEventListener('change', e => { navEl.classList.toggle('dark', e.target.value === 'dark'); persist({navStyle: e.target.value}); });
+
+  window.addEventListener('message', (ev) => {
+    const d = ev.data || {};
+    if (d.type === '__activate_edit_mode') tweakPanel.classList.add('open');
+    if (d.type === '__deactivate_edit_mode') tweakPanel.classList.remove('open');
+  });
+  try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(_) {}
+</script>
 </body>
-
 </html>
