@@ -22,9 +22,9 @@
 
   <!-- ===== SEO: Favicon ===== -->
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="images/site.webmanifest" />
   <meta name="theme-color" content="#326BC8" />
 
   <!-- ===== SEO: Open Graph (Facebook, LinkedIn, WhatsApp) ===== -->
@@ -32,7 +32,7 @@
   <meta property="og:site_name" content="IChannel Technologies" />
   <meta property="og:title" content="IChannel Technologies — Digital, Cloud & IT Consulting" />
   <meta property="og:description"
-    content="We build world-class web apps, mobile apps, cloud infrastructure, and IT solutions for businesses across Nigeria and Africa. Based in Ibadan." />
+    content="A trusted partner for web applications, ERP software, cloud infrastructure, and IT consulting across Nigeria and Africa." />
   <meta property="og:url" content="https://ichanneltech.com/" />
   <meta property="og:image" content="https://ichanneltech.com/images/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -164,7 +164,7 @@
       "name": "IChannel Technologies — Digital, Cloud & IT Consulting",
       "isPartOf": { "@id": "https://ichanneltech.com/#website" },
       "about": { "@id": "https://ichanneltech.com/#organization" },
-      "description": "IChannel Technologies builds world-class web apps, mobile apps, cloud infrastructure, and IT solutions for businesses across Nigeria and Africa.",
+      "description": "A trusted partner for web applications, ERP software, cloud infrastructure, and IT consulting across Nigeria and Africa.",
       "inLanguage": "en-NG"
     }
   ]
@@ -1961,13 +1961,24 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
       opacity: 0.04;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
     }
 
-    .process>*,
+    .process>*:not(.aurora-canvas),
     .cta__inner>* {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+    }
+
+    /* ---------- Aurora canvas ---------- */
+    .aurora-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      display: block;
     }
 
     /* ---------- Tweaks panel ---------- */
@@ -2297,6 +2308,7 @@
 
   <!-- Process -->
   <section class="process">
+    <canvas class="aurora-canvas" id="auroraCanvas" aria-hidden="true"></canvas>
     <div class="wrap">
       <div class="reveal">
         <span class="label">How we work</span>
@@ -2782,7 +2794,7 @@
 
     // ---------- Hero word cycle ----------
     (function () {
-      const words = ['Plan', 'Deploy', 'Scale'];
+      const words = ['Plan', 'Deploy', 'Secure', 'Scale'];
       let idx = 0;
       const el = document.getElementById('heroWord');
       el.textContent = words[idx];
@@ -2902,6 +2914,112 @@
       backTop.classList.toggle('visible', scrollY > 300);
     }, { passive: true });
     backTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ---------- Aurora WebGL shader (process section) ----------
+    (function () {
+      const canvas = document.getElementById('auroraCanvas');
+      if (!canvas) return;
+      const section = canvas.closest('section');
+      const gl = canvas.getContext('webgl', { alpha: false, antialias: false, powerPreference: 'low-power' });
+      if (!gl) return;
+
+      const VS = `attribute vec2 a_pos;void main(){gl_Position=vec4(a_pos,0.,1.);}`;
+
+      const FS = `precision highp float;
+uniform vec2 u_res;uniform float u_time;uniform vec2 u_mouse;
+
+float hash(vec2 p){p=fract(p*vec2(234.34,435.345));p+=dot(p,p+34.23);return fract(p.x*p.y);}
+float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);vec2 u=f*f*(3.-2.*f);
+  return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}
+float fbm(vec2 p){float v=0.,a=.5;vec2 d=vec2(1.7,9.2);
+  for(int i=0;i<5;i++){v+=a*noise(p);p=p*2.1+d;a*=.5;}return v;}
+
+float ribbon(vec2 uv,float baseY,float spd,float freq,float sharp){
+  float ray=fbm(vec2(uv.x*freq,u_time*.05))*.5+.5;
+  float wave=sin(uv.x*freq*.8+u_time*spd)*.06+sin(uv.x*freq*1.3-u_time*spd*.7+1.5)*.04;
+  float band=exp(-pow(uv.y-baseY-wave,2.)*sharp);
+  return band*ray*smoothstep(0.,.1,1.-uv.y)*smoothstep(0.,.08,uv.y);}
+
+void main(){
+  vec2 uv=gl_FragCoord.xy/u_res; uv.y=1.-uv.y;
+  float t=u_time; vec2 m=u_mouse;
+  vec2 q=vec2(fbm(uv*2.+vec2(t*.08,0.)),fbm(uv*2.+vec2(0.,t*.1)+3.7));
+  float md=length(uv-m);
+  vec2 wuv=uv+q*.28+(m-uv)*exp(-md*md*4.5)*.12;
+  float r1=ribbon(wuv,.38+sin(t*.18)*.04,.9,3.2,260.);
+  float r2=ribbon(wuv,.54+sin(t*.14+1.9)*.05,.7,2.6,200.);
+  float r3=ribbon(wuv,.66+sin(t*.22+3.)*.03,1.1,4.,240.);
+  float r4=ribbon(wuv,.28+sin(t*.10+.7)*.06,.5,2.,180.);
+  vec3 cBlue=vec3(.07,.38,.92),cTeal=vec3(0.,.70,.78);
+  vec3 cPurple=vec3(.38,.06,.78),cCyan=vec3(0.,.86,.70),cNavy=vec3(.05,.10,.50);
+  float cx=fract(uv.x+sin(t*.08)*.15);
+  vec3 col=vec3(0.);
+  col+=r1*mix(cBlue,cTeal,smoothstep(0.,1.,cx))*1.1;
+  col+=r2*mix(cPurple,cBlue,smoothstep(0.,1.,1.-cx))*.9;
+  col+=r3*mix(cCyan,cTeal,smoothstep(0.,1.,cx*.9))*.75;
+  col+=r4*mix(cNavy,cPurple,smoothstep(0.,1.,cx))*.6;
+  col+=exp(-md*md*8.)*.5*mix(cCyan,cBlue,.5);
+  col+=cNavy*(.5-uv.y*.4)*.12;
+  vec2 vc=uv*2.-1.;
+  col*=1.-dot(vc*vec2(.5,.8),vc*vec2(.5,.8))*.4;
+  col=col/(col+.5)*1.5;
+  col+=vec3(.078,.075,.059);
+  gl_FragColor=vec4(clamp(col,0.,1.),1.);}`;
+
+      function mkShader(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src); gl.compileShader(s); return s;
+      }
+      const prog = gl.createProgram();
+      gl.attachShader(prog, mkShader(gl.VERTEX_SHADER, VS));
+      gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, FS));
+      gl.linkProgram(prog); gl.useProgram(prog);
+
+      const vbuf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, vbuf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+      const posLoc = gl.getAttribLocation(prog, 'a_pos');
+      gl.enableVertexAttribArray(posLoc);
+      gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+      const uRes = gl.getUniformLocation(prog, 'u_res');
+      const uTime = gl.getUniformLocation(prog, 'u_time');
+      const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+      let mx = 0.5, my = 0.5, tmx = 0.5, tmy = 0.5;
+      section.addEventListener('mousemove', e => {
+        const r = section.getBoundingClientRect();
+        tmx = (e.clientX - r.left) / r.width;
+        tmy = (e.clientY - r.top) / r.height;
+      }, { passive: true });
+      section.addEventListener('mouseleave', () => { tmx = 0.5; tmy = 0.5; }, { passive: true });
+
+      function resize() {
+        canvas.width = section.offsetWidth;
+        canvas.height = section.offsetHeight;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      }
+      resize();
+      new ResizeObserver(resize).observe(section);
+
+      let t0 = null, raf = null, live = false;
+      new IntersectionObserver(([e]) => {
+        live = e.isIntersecting;
+        if (live && !raf) raf = requestAnimationFrame(tick);
+      }, { threshold: 0.01 }).observe(section);
+
+      function tick(ts) {
+        if (!live) { raf = null; return; }
+        raf = requestAnimationFrame(tick);
+        if (!t0) t0 = ts;
+        mx += (tmx - mx) * 0.05;
+        my += (tmy - my) * 0.05;
+        gl.uniform2f(uRes, canvas.width, canvas.height);
+        gl.uniform1f(uTime, (ts - t0) / 1000);
+        gl.uniform2f(uMouse, mx, my);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+    })();
   </script>
 
   <button class="back-top" id="backTop" aria-label="Back to top">
