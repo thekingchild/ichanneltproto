@@ -182,6 +182,12 @@
   </script>
   <style>
     :root {
+      /* ── Process section parallax — edit just these two lines ── */
+      --process-overlay-color: #18253b;
+      /* overlay colour: try #14130F, #1a0d00, #0d2e1a … */
+      --process-overlay-alpha: 0.88;
+      /* 0 = fully transparent · 1 = fully opaque       */
+
       --bg: #F8F7F3;
       --ink: #1A1915;
       --ink-2: #3A3832;
@@ -1238,8 +1244,8 @@
     /* ---------- Process ---------- */
     .process {
       padding: 96px 0;
-      background: var(--coal);
       color: #EFE9D8;
+      /* background replaced by .process__bg parallax layer */
     }
 
     .process .wrap {
@@ -1947,12 +1953,44 @@
       height: 14px;
     }
 
-    /* ---------- Grain on dark sections ---------- */
+    /* ---------- Process parallax background ---------- */
     .process {
       position: relative;
       overflow: hidden;
     }
 
+    /* Parallax image layer — replace images/process-bg.jpg with your own photo
+       Recommended image size: 1920 × 1080 px (16:9, JPEG or WebP, ≤ 300 KB)    */
+    .process__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/process-bg.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center 40%;
+      background-attachment: fixed;
+      /* desktop parallax */
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Colour overlay — values driven by the CSS variables in :root */
+    .process__bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: var(--process-overlay-color);
+      opacity: var(--process-overlay-alpha);
+    }
+
+    /* Disable fixed attachment on touch screens (broken in mobile Safari) */
+    @media (hover: none) {
+      .process__bg {
+        background-attachment: scroll;
+      }
+    }
+
+    /* ---------- Grain on dark sections ---------- */
     .process::before,
     .cta__inner::before {
       content: '';
@@ -1961,13 +1999,15 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
       opacity: 0.04;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
+      /* above image (0), below content (2) */
     }
 
-    .process>*,
+    .process>*:not(.process__bg),
     .cta__inner>* {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      /* above grain (1) */
     }
 
     /* ---------- Tweaks panel ---------- */
@@ -2172,6 +2212,7 @@
             <span class="tag accent">Web app ✦</span>
             <span class="tag">Cloud infra</span>
             <span class="tag">IT consulting</span>
+            <span class="tag">Training</span>
           </div>
         </div>
       </div>
@@ -2193,7 +2234,7 @@
           <p style="max-width:52ch; color:var(--ink-2); font-size:17px; line-height:1.55;">
             IChannel Technologies is a full-cycle software and IT consulting company. For over fifteen years we've
             helped founders, operators and public institutions start, run and grow their work online — from websites and
-            mobile apps, to cloud infrastructure, to the internal tools that keep teams productive.
+            business apps, to cloud infrastructure, to the internal tools that keep teams productive.
           </p>
           <p style="max-width:52ch; color:var(--muted); font-size:14.5px; margin-top:14px;">
             Our consulting experience lets us shape personalized answers to real business challenges, not templated
@@ -2297,6 +2338,7 @@
 
   <!-- Process -->
   <section class="process">
+    <div class="process__bg" aria-hidden="true"></div>
     <div class="wrap">
       <div class="reveal">
         <span class="label">How we work</span>
@@ -2652,9 +2694,10 @@
   <section class="cta" id="contact">
     <div class="wrap">
       <div class="cta__inner reveal">
-        <h2>Tell us what you're <em>building.</em> We'll tell you how we'd ship it.</h2>
+        <h2>Start your next digital project with <em>clarity</em></h2>
         <div class="cta__side">
-          <p>A 30-minute call, no slide deck required. Bring a rough idea or a finished RFP — either works.</p>
+          <p>We help you plan, build, and deploy the right solution—efficiently and at scale.
+            Book a quick 30-minute call. Whether it’s an idea or a detailed brief, we’re ready.</p>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn btn--fill" href="https://cal.com/ichanneltech" target="_blank" rel="noopener">
               Schedule a Meeting
